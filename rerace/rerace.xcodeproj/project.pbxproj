@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49C843CC109125FA0052A1AA /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C843CB109125FA0052A1AA /* GLUT.framework */; };
+		49C843D21091261A0052A1AA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C843D11091261A0052A1AA /* OpenGL.framework */; };
 		530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 530A68AE10911A8800C87CD4 /* Racer.cpp */; };
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* rerace.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* rerace.1 */; };
@@ -27,6 +29,8 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		49C843CB109125FA0052A1AA /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
+		49C843D11091261A0052A1AA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
 		530A68AD10911A8800C87CD4 /* Racer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Racer.h; sourceTree = "<group>"; };
 		530A68AE10911A8800C87CD4 /* Racer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Racer.cpp; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* rerace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rerace; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C843CC109125FA0052A1AA /* GLUT.framework in Frameworks */,
+				49C843D21091261A0052A1AA /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +56,8 @@
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859E8C029090F304C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				49C843CB109125FA0052A1AA /* GLUT.framework */,
+				49C843D11091261A0052A1AA /* OpenGL.framework */,
 			);
 			name = rerace;
 			sourceTree = "<group>";
