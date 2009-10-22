@@ -2,6 +2,6 @@
 
 int main (int argc, char * const argv[]) {
     // insert code here...
-    std::cout << "gYOU LIE\n";
+    std::cout << "YOU LIE\n";
     return 0;
 }
