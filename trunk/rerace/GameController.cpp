@@ -7,14 +7,10 @@
  *
  */
 #include <GLUT/glut.h>
+#include <iostream>
 #include "GameController.h"
 
-void GameController::mainLoop()
-{
-	/*glRotatef(5, 0, 1, 0);
-	glRotatef(5, 0, 0, 1);
-	glRotatef(5, 1, 0, 0);*/
-}
+using namespace std;
 
 GameController::GameController(ViewController* newViewController)
 {
@@ -24,4 +20,41 @@ GameController::GameController(ViewController* newViewController)
 		_players[i] = new PlayerController();
 		_viewController->setPlayer(i, _players[i]);
 	}
+	iterationCount = 0;
+}
+
+void GameController::mainLoop(int cursorX, int cursorY)
+{	
+	iterationCount++;
+	
+	GLfloat* player1Position = _players[0]->currentVehicleLocation();
+	
+	_viewController->moveCameraTo(player1Position[0], player1Position[1]+kCameraDistanceAbovePlayer, player1Position[2]+kCameraDistanceFromPlayer);
+
+	
+	int width =	glutGet( GLUT_WINDOW_WIDTH );
+	int height = glutGet( GLUT_WINDOW_HEIGHT );
+	
+	_viewController->mouseMove((float)(cursorX-width/2.0)/(float)width, (float)(cursorY-height/2.0)/(float)height);
+	mouseMove((float)(cursorX-width/2.0)/(float)width, (float)(cursorY-height/2.0)/(float)height);
+
+	// Reset the pointer to the center of the screen
+	glutWarpPointer( width/2, height/2 );
+}
+
+void GameController::mouseMove(float x, float y)
+{
+	_players[0]->turn(0, x*kMouseSensitivity, 0);
+}
+
+void GameController::keyboardFunction(unsigned char key, int x, int y)
+{
+	GLfloat acceleration = 0;
+	if(key=='w')
+	{
+		acceleration = -kRacerForwardAcceleration;
+	} else if (key=='s') {
+		acceleration = kRacerForwardAcceleration;
+	}
+	_players[0]->accelerate(acceleration);
 }
