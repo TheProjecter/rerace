@@ -1,73 +1,47 @@
 #include <iostream>
 #include <GLUT/glut.h>
 
-void rect(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd)
-{
-	glVertex3fv(va);
-	glVertex3fv(vb);
-	glVertex3fv(vc);
-	glVertex3fv(vd);
-}
+#include "GameController.h"
 
-void cube(GLfloat *point, GLfloat size)
-{
-	GLfloat *a = point;
-	GLfloat b[3] = {point[0] ,point[1], point[2]+size};
-	GLfloat c[3] = {point[0]+size,point[1], point[2]+size};
-	GLfloat d[3] = {point[0]+size ,point[1], point[2]};
-	
-	GLfloat e[3] = {point[0] ,point[1]+size, point[2]};
-	GLfloat f[3] = {point[0] ,point[1]+size, point[2]+size};
-	GLfloat g[3] = {point[0]+size ,point[1]+size, point[2]+size};
-	GLfloat h[3] = {point[0]+size ,point[1]+size, point[2]};
-	
-	GLfloat colors[6][3] = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0},
-		{0.0, 0.0, 1.0}, {1.0, 1.0, 0.0}, {0.0, 1.0, 1.0}, {1.0, 0.0, 1.0}};
-	
-	// Top
-    glColor3fv(colors[0]);
-    rect(a, b, c, d);
-	
-	// Left
-    glColor3fv(colors[1]);
-    rect(a, b, f, e);
-	
-	// Right
-    glColor3fv(colors[2]);
-    rect(d, c, g, h);
-	
-	// Bottom
-    glColor3fv(colors[3]);
-    rect(e, f, g, h);
-	
-	// Back
-    glColor3fv(colors[4]);
-    rect(a, d, h, e);
-	
-	// Front
-    glColor3fv(colors[5]);
-    rect(b, c, g, f);
-}
+GameController* gameController;
+ViewController* viewController;
+
 
 void display(void)
 {
 	/* clear window */
-	glRotatef(5, 0, 1, 0);
-	glRotatef(5, 0, 0, 1);
-	glRotatef(5, 1, 0, 0);
 	
-	glClear(GL_COLOR_BUFFER_BIT);
-	
-	/* draw unit square polygon */
-	glBegin(GL_POLYGON);
-	GLfloat startPoint[3] = {-.8, -.8, -.8};
-	GLfloat startSize = 1.6;
-	cube(startPoint, startSize);
-	glEnd();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	viewController->draw();
 	
 	/*  Empties all GL buffers, causing all issued commands to be executed
 	 as quickly as they are accepted by the actual rendering engine */
 	glFlush();
+	
+	glutSwapBuffers();
+}
+
+void reshape(int w, int h)
+{
+    glViewport(0, 0, w, h);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    if (w <= h)
+        glOrtho(-2.0, 2.0, -2.0 * (GLfloat) h / (GLfloat) w,
+				2.0 * (GLfloat) h / (GLfloat) w, -10.0, 10.0);
+    else
+        glOrtho(-2.0 * (GLfloat) w / (GLfloat) h,
+				2.0 * (GLfloat) w / (GLfloat) h, -2.0, 2.0, -10.0, 10.0);
+    glMatrixMode(GL_MODELVIEW);
+    glutPostRedisplay();
+}
+
+void timerFunction(int extra)
+{
+	gameController->mainLoop();
+	
+	glutPostRedisplay();
+	glutTimerFunc(30,timerFunction,0);
 }
 
 int main (int argc, char** argv) {
@@ -76,8 +50,23 @@ int main (int argc, char** argv) {
 	/* Window title is name of program (arg[0]) */
 	
 	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+	glutInitWindowSize(500, 500);
 	glutCreateWindow(argv[0]);
+	
+	// Callback Functions
 	glutDisplayFunc(display);
+	glutReshapeFunc(reshape);
+	glutTimerFunc(1000, timerFunction,0);
+	
+	// Properties
+	glEnable(GL_DEPTH_TEST);
+	
+	// Setup Objects
+	viewController = new ViewController();
+	gameController = new GameController(viewController);
+	
+	// Start Main Loop
 	glutMainLoop();
 	
     return 0;
