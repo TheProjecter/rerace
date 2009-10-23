@@ -9,6 +9,11 @@
 
 #include "Guardian.h"
 
+GLfloat* Guardian::location()
+{
+	return _position;
+}
+
 Guardian::Guardian()
 {
 	
@@ -27,4 +32,13 @@ Guardian::Guardian(GLfloat* startPostion)
 void Guardian::draw()
 {
 	//drawCube(_position, 1.6);
+}
+
+void Guardian::accelerate(GLfloat distance)
+{
+	
+}
+void Guardian::turn(GLfloat x, GLfloat y, GLfloat z)
+{
+	
 }
