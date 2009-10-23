@@ -18,7 +18,14 @@ public:
 	Racer();
 	Racer(GLfloat* startPostion);
 	void draw();
+	void move();
+	void accelerate(GLfloat distance);
+	void turn(GLfloat y);
+	
+	GLfloat* location();
 	
 private:
 	GLfloat _position[3];
+	GLfloat _speed;
+	GLfloat _heading;
 };

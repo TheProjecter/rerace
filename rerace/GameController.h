@@ -12,9 +12,13 @@ class GameController
 {
 public:
 	GameController(ViewController* viewController);
-	void mainLoop();
+	void mainLoop(int cursorX, int cursorY);
+	void keyboardFunction(unsigned char key, int x, int y);
+	void mouseMove(float x, float y);
 	
 private:
 	PlayerController* _players[kNumOfPlayers];
 	ViewController* _viewController;
+	
+	int iterationCount;
 };

@@ -15,6 +15,7 @@ PlayerController::PlayerController()
 	_playerId = 0;
 	
 	_racer = new Racer();
+	_usingRacer = true;
 }
 
 PlayerController::PlayerController(string newName, unsigned int playerId)
@@ -23,10 +24,34 @@ PlayerController::PlayerController(string newName, unsigned int playerId)
 	_playerId = playerId;
 	
 	_racer = new Racer();
+	_usingRacer = true;
 }
 
 void PlayerController::draw()
 {
 	_racer->draw();
 	_guardian->draw();
+}
+
+GLfloat* PlayerController::currentVehicleLocation()
+{
+	if(_usingRacer)
+		return _racer->location();
+	return _guardian->location();
+}
+
+void PlayerController::accelerate(GLfloat distance)
+{
+	if(_usingRacer)
+		_racer->accelerate(distance);
+	else
+		_guardian->accelerate(distance);
+}
+
+void PlayerController::turn(GLfloat x, GLfloat y, GLfloat z)
+{
+	if(_usingRacer)
+		_racer->turn(y);
+	else
+		_guardian->turn(x, y, z);
 }

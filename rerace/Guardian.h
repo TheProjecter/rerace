@@ -15,6 +15,10 @@ public:
 	Guardian();
 	Guardian(GLfloat* startPostion);
 	void draw();
+	GLfloat* location();
+	void turn(GLfloat x, GLfloat y, GLfloat z);
+	
+	void accelerate(GLfloat distance);
 		
 private:
 	GLfloat _position[3];
