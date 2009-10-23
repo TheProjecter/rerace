@@ -5,15 +5,16 @@ void display(void)
 {
 	/* clear window */
 	
+	
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	/* draw unit square polygon */
 	glBegin(GL_POLYGON);
 	glColor3f(1.,0.,0.);
-	glVertex2f(-.05, -.05);
-	glVertex2f(-.05, .05);
-	glVertex2f(.05, .05);
-	glVertex2f(.05, -.05);
+	glVertex3f(-.05, -.05, -.5);
+	glVertex3f(-.05, .05);
+	glVertex3f(.05, .05);
+	glVertex3f(.05, -.05);
 	glEnd();
 	
 	/*  Empties all GL buffers, causing all issued commands to be executed
