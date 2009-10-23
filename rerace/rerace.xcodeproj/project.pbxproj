@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		49C843CC109125FA0052A1AA /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C843CB109125FA0052A1AA /* GLUT.framework */; };
 		49C843D21091261A0052A1AA /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C843D11091261A0052A1AA /* OpenGL.framework */; };
+		49C844F410913BD00052A1AA /* GameController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C844F310913BD00052A1AA /* GameController.cpp */; };
+		49C8453A10913E140052A1AA /* ViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C8453910913E140052A1AA /* ViewController.cpp */; };
+		49C845E1109147610052A1AA /* PlayerController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C845E0109147610052A1AA /* PlayerController.cpp */; };
+		49C845E4109148CF0052A1AA /* Guardian.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C845E3109148CF0052A1AA /* Guardian.cpp */; };
 		530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 530A68AE10911A8800C87CD4 /* Racer.cpp */; };
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* rerace.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* rerace.1 */; };
@@ -31,6 +35,16 @@
 		08FB7796FE84155DC02AAC07 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		49C843CB109125FA0052A1AA /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
 		49C843D11091261A0052A1AA /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		49C844F210913BD00052A1AA /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
+		49C844F310913BD00052A1AA /* GameController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameController.cpp; sourceTree = "<group>"; };
+		49C8453810913E140052A1AA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		49C8453910913E140052A1AA /* ViewController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ViewController.cpp; sourceTree = "<group>"; };
+		49C845D81091468A0052A1AA /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		49C845DF109147610052A1AA /* PlayerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerController.h; sourceTree = "<group>"; };
+		49C845E0109147610052A1AA /* PlayerController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayerController.cpp; sourceTree = "<group>"; };
+		49C845E2109148CF0052A1AA /* Guardian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guardian.h; sourceTree = "<group>"; };
+		49C845E3109148CF0052A1AA /* Guardian.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Guardian.cpp; sourceTree = "<group>"; };
+		49C846B910914D530052A1AA /* Primitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Primitives.h; sourceTree = "<group>"; };
 		530A68AD10911A8800C87CD4 /* Racer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Racer.h; sourceTree = "<group>"; };
 		530A68AE10911A8800C87CD4 /* Racer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Racer.cpp; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* rerace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rerace; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,8 +79,10 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				530A68AD10911A8800C87CD4 /* Racer.h */,
-				530A68AE10911A8800C87CD4 /* Racer.cpp */,
+				49C846B810914D490052A1AA /* Drawing */,
+				49C845D81091468A0052A1AA /* constants.h */,
+				49C84577109140C20052A1AA /* Game Objects */,
+				49C844F110913BB40052A1AA /* Control */,
 				08FB7796FE84155DC02AAC07 /* main.cpp */,
 			);
 			name = Source;
@@ -78,6 +94,38 @@
 				8DD76F6C0486A84900D96B5E /* rerace */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		49C844F110913BB40052A1AA /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				49C844F210913BD00052A1AA /* GameController.h */,
+				49C844F310913BD00052A1AA /* GameController.cpp */,
+				49C8453810913E140052A1AA /* ViewController.h */,
+				49C8453910913E140052A1AA /* ViewController.cpp */,
+				49C845DF109147610052A1AA /* PlayerController.h */,
+				49C845E0109147610052A1AA /* PlayerController.cpp */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
+		49C84577109140C20052A1AA /* Game Objects */ = {
+			isa = PBXGroup;
+			children = (
+				530A68AD10911A8800C87CD4 /* Racer.h */,
+				530A68AE10911A8800C87CD4 /* Racer.cpp */,
+				49C845E2109148CF0052A1AA /* Guardian.h */,
+				49C845E3109148CF0052A1AA /* Guardian.cpp */,
+			);
+			name = "Game Objects";
+			sourceTree = "<group>";
+		};
+		49C846B810914D490052A1AA /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				49C846B910914D530052A1AA /* Primitives.h */,
+			);
+			name = Drawing;
 			sourceTree = "<group>";
 		};
 		C6859E8C029090F304C91782 /* Documentation */ = {
@@ -133,6 +181,10 @@
 			files = (
 				8DD76F650486A84900D96B5E /* main.cpp in Sources */,
 				530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */,
+				49C844F410913BD00052A1AA /* GameController.cpp in Sources */,
+				49C8453A10913E140052A1AA /* ViewController.cpp in Sources */,
+				49C845E1109147610052A1AA /* PlayerController.cpp in Sources */,
+				49C845E4109148CF0052A1AA /* Guardian.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

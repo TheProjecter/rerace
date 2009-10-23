@@ -1,5 +1,5 @@
 /*
- *  Racer.cpp
+ *  Guardian.cpp
  *  rerace
  *
  *  Created by Andrew Wagner on 10/22/09.
@@ -7,10 +7,9 @@
  *
  */
 
-#include "Racer.h"
-#import "Primitives.h"
+#include "Guardian.h"
 
-Racer::Racer()
+Guardian::Guardian()
 {
 	
 	_position[0]= -0.8;
@@ -18,14 +17,14 @@ Racer::Racer()
 	_position[2]= -0.8;
 }
 
-Racer::Racer(GLfloat* startPostion)
+Guardian::Guardian(GLfloat* startPostion)
 {
 	_position[0]= startPostion[0];
 	_position[1]= startPostion[1];
 	_position[2]= startPostion[2];
 }
 
-void Racer::draw()
+void Guardian::draw()
 {
-	drawCube(_position, 1.6);
+	//drawCube(_position, 1.6);
 }

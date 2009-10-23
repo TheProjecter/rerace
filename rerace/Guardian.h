@@ -1,5 +1,5 @@
 /*
- *  Racer.h
+ *  Guardian.h
  *  rerace
  *
  *  Created by Andrew Wagner on 10/22/09.
@@ -7,18 +7,15 @@
  *
  */
 
-#include <string>
 #include <GLUT/GLUT.h>
 
-using namespace std;
-
-class Racer
+class Guardian 
 {
 public:
-	Racer();
-	Racer(GLfloat* startPostion);
+	Guardian();
+	Guardian(GLfloat* startPostion);
 	void draw();
-	
+		
 private:
 	GLfloat _position[3];
 };
