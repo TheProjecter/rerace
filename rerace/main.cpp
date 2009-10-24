@@ -31,26 +31,14 @@ void reshape(int w, int h)
 	width = w;
 	height = h;
 	
-    glViewport(0, 0, width, height);
-    glMatrixMode(GL_PROJECTION);
+    viewController->resetCamera();
 	
-	glLoadIdentity();
-	
-	gluPerspective(60.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
-	//glRotatef(45, 1, 0, 0);
-	//glRotatef(45, 0, 1, 0);
-	//glRotatef(45, 0, 0, 1);
-	//glTranslatef(1, 0, 0);
-	
-    glMatrixMode(GL_MODELVIEW);
     glutPostRedisplay();
 }
 void passiveMouseFunction(int x, int y)
 {
 	lastPoint[0]=x;
 	lastPoint[1]=y;
-	//viewController->mouseMove((float)(width/2.0-x)/(float)width, (float)(height/2.0-y)/(float)height);
-	//gameController->mouseMove((float)(width/2.0-x)/(float)width, (float)(height/2.0-y)/(float)height);
 }
 void timerFunction(int extra)
 {
@@ -83,15 +71,20 @@ int main (int argc, char** argv) {
 	
 	// Properties
 	glEnable(GL_DEPTH_TEST);
-	glutSetCursor(GLUT_CURSOR_NONE);
-	glutWarpPointer(width/2, height/2);
+	//glutSetCursor(GLUT_CURSOR_NONE);
 	
 	//CGEventSourceSetLocalEventsSuppressionInterval(,0.0);
 	CGSetLocalEventsSuppressionInterval(0.0);
+	// Reset the pointer to the center of the screen
+	glutWarpPointer( width/2, height/2 );
 	
 	// Setup Objects
 	viewController = new ViewController();
 	gameController = new GameController(viewController);
+	
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+    glMatrixMode(GL_MODELVIEW);
 	
 	// Start Main Loop
 	glutMainLoop();

@@ -13,7 +13,7 @@
 
 // Camera
 #define kCameraDistanceFromPlayer .5
-#define kCameraDistanceAbovePlayer 0//.1
+#define kCameraDistanceAbovePlayer .1
 
 // General Game
 #define kNumOfPlayers 1

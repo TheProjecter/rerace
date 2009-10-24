@@ -32,8 +32,8 @@ Guardian::Guardian()
 {
 	_position = new GLfloat[3];
 	_position[0]= 0;
-	_position[1] = -kCameraDistanceAbovePlayer;
-	_position[2] = -kCameraDistanceFromPlayer;
+	_position[1] = 0;
+	_position[2] = 0;
 	_speed = 0;
 	_headingX = 0;
 	_headingY = 0;
@@ -57,9 +57,6 @@ Guardian::~Guardian()
 
 void Guardian::move()
 {
-	GLfloat headingZ = 1-cosf(_headingX)*cosf(_headingX)-cosf(_headingY)*cosf(_headingY);
-	
-	cout<<headingZ<<endl;
 	_position[0] += _speed*sinf(_headingY*M_PI/180)*cosf(_headingX*M_PI/180);
 	_position[1] -= _speed*sinf(_headingX*M_PI/180);
 	_position[2] += _speed*cosf(_headingY*M_PI/180)*cosf(_headingX*M_PI/180);
@@ -84,18 +81,20 @@ void Guardian::draw()
 	
 	glPopMatrix();
 	
-	glColor3f(1.0, 0, 0);
-	glBegin(GL_LINE_STRIP);
-	glVertex3f(_position[0]-cos((_headingY)*M_PI/180)*10, _position[1], _position[2]+sin((_headingY)*M_PI/180)*10);
-	glVertex3f(_position[0], _position[1], _position[2]);
-	glEnd();
+	/* Draw Perpedicular Line on x-z plane
+	 * glColor3f(1.0, 0, 0);
+	 * glBegin(GL_LINE_STRIP);
+	 * glVertex3f(_position[0]-cos((_headingY)*M_PI/180)*10, _position[1], _position[2]+sin((_headingY)*M_PI/180)*10);
+	 * glVertex3f(_position[0], _position[1], _position[2]);
+	 * glEnd();
+	 */
 }
 
 void Guardian::accelerate(GLfloat distance)
 {
 	_speed += distance;
 }
-void Guardian::turn(GLfloat x, GLfloat y, GLfloat z)
+void Guardian::turn(GLfloat x, GLfloat y)
 {
 	_headingX -= x;
 	_headingY -= y;

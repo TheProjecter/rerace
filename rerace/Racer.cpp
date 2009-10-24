@@ -25,8 +25,8 @@ Racer::Racer()
 {
 	_position = new GLfloat[3];
 	_position[0] = 0;
-	_position[1] = -kCameraDistanceAbovePlayer;
-	_position[2] = -kCameraDistanceFromPlayer;
+	_position[1] = 0;
+	_position[2] = 0;
 	_speed = 0;
 	_heading = 0;
 }
@@ -80,9 +80,11 @@ void Racer::draw()
 	
 	glPopMatrix();
 	
-	glColor3f(1.0, 0, 0);
-	glBegin(GL_LINE_STRIP);
-	glVertex3f(_position[0]-cos((_heading)*M_PI/180)*10, _position[1], _position[2]+sin((_heading)*M_PI/180)*10);
-	glVertex3f(_position[0], _position[1], _position[2]);
-	glEnd();
+	/* Draw Perpedicular Line on x-z plane
+	 * glColor3f(1.0, 0, 0);
+	 * glBegin(GL_LINE_STRIP);
+	 * glVertex3f(_position[0]-cos((_heading)*M_PI/180)*10, _position[1], _position[2]+sin((_heading)*M_PI/180)*10);
+	 * glVertex3f(_position[0], _position[1], _position[2]);
+	 * glEnd();
+	 */
 }

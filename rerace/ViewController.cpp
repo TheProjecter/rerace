@@ -11,16 +11,20 @@
 #include "Primitives.h"
 #include <Math.h>
 
+#include <iostream>
+
 ViewController::ViewController()
 {
 	for (int i=0; i<10; i++) {
-		levelCubes[i][0] = (GLfloat)(rand()%6)-3;
 		levelCubes[i][1] = (GLfloat)(rand()%6)-3;
-		levelCubes[i][2] = -5.0-rand()%5;
+		levelCubes[i][0] = -5.0-rand()%5;
+		levelCubes[i][2] = (GLfloat)(rand()%6)-3;
 	}
 	cameraPosition[0] = 0;
 	cameraPosition[1] = 0;
 	cameraPosition[2] = 0;	
+	cameraAngle[0] = 0;
+	cameraAngle[1] = 0;
 }
 
 void ViewController::draw()
@@ -35,6 +39,25 @@ void ViewController::draw()
 		_players[i]->draw();
 	
 }
+void ViewController::resetCamera()
+{
+	int width =	glutGet( GLUT_WINDOW_WIDTH );
+	int height = glutGet( GLUT_WINDOW_HEIGHT );
+	
+	glViewport(0, 0, width, height);
+    glMatrixMode(GL_PROJECTION);
+	
+	glLoadIdentity();
+	cameraPosition[0] = 0;
+	cameraPosition[1] = 0;
+	cameraPosition[2] = 0;
+	cameraAngle[0] = 0;
+	cameraAngle[1] = 0;
+	
+	gluPerspective(90.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
+	
+    glMatrixMode(GL_MODELVIEW);
+}
 void ViewController::moveCameraTo(float x, float y, float z)
 {
 	glMatrixMode(GL_PROJECTION);
@@ -47,6 +70,22 @@ void ViewController::moveCameraTo(float x, float y, float z)
 	cameraPosition[1] = y;
 	cameraPosition[2] = z;
 }
+void ViewController::rotateCamera(float x, float y)
+{
+	glMatrixMode(GL_PROJECTION);
+	
+	glTranslatef(cameraPosition[0], cameraPosition[1]-kCameraDistanceAbovePlayer, cameraPosition[2]-kCameraDistanceFromPlayer);
+	
+	glRotatef(cameraAngle[1]-y, 0, 1, 0);
+	glRotatef(cameraAngle[0]-x, sinf((y+90)*M_PI/180), 0, cosf((y+90)*M_PI/180));
+	
+	glTranslatef(-cameraPosition[0], -cameraPosition[1]+kCameraDistanceAbovePlayer, -cameraPosition[2]+kCameraDistanceFromPlayer);
+	
+	glMatrixMode(GL_MODELVIEW);
+	
+	cameraAngle[0] = x;
+	cameraAngle[1] = y;
+}
 
 // Used to assign players from game controller
 void ViewController::setPlayer(int index, PlayerController* player)
@@ -57,30 +96,7 @@ void ViewController::setPlayer(int index, PlayerController* player)
 void ViewController::mouseMove(float x, float y)
 {
 	/* 
-	 * GameControllers mouse move function will be called after so
+	 * GameController's mouse move function will be called after so
 	 * don't mess anything up perminently
 	 */
-	
-	glMatrixMode(GL_PROJECTION);
-	
-	GLfloat* player1Position = _players[0]->currentVehicleLocation();
-	//GLfloat player1Heading = _players[0]->currentVehicleHeading();
-	glTranslatef(player1Position[0], player1Position[1], player1Position[2]);
-	
-	/*gluLookAt(player1Position[0], player1Position[1], player1Position[2]-kCameraDistanceFromPlayer, 
-			  player1Position[0]+cos(player1Heading*M_PI/180), player1Position[1], player1Position[2]+sin(player1Heading*M_PI/180), 
-			  0, 1, 0);*/
-	
-	glRotatef(x*kMouseSensitivity, 0, 1, 0);
-	GLfloat player1Heading = 0;
-	if(_players[0]->controllingRacer()==false)
-	{
-		player1Heading = _players[0]->currentVehicleHeading();
-		//glRotatef(y*kMouseSensitivity, 1, 0, 0);
-		glRotatef(y*kMouseSensitivity, sin((player1Heading+90)*M_PI/180), 0, cos((player1Heading+90)*M_PI/180));
-	}
-	
-	glTranslatef(-player1Position[0], -player1Position[1], -player1Position[2]);
-	
-	glMatrixMode(GL_MODELVIEW);
 }
