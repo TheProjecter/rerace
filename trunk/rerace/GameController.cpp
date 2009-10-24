@@ -30,7 +30,7 @@ void GameController::mainLoop(int cursorX, int cursorY)
 	GLfloat* player1Position = _players[0]->currentVehicleLocation();
 	
 	_viewController->moveCameraTo(player1Position[0], player1Position[1]+kCameraDistanceAbovePlayer, player1Position[2]+kCameraDistanceFromPlayer);
-
+	_viewController->rotateCamera(_players[0]->currentVehicleHeadingX(), _players[0]->currentVehicleHeadingY() );
 	
 	int width =	glutGet( GLUT_WINDOW_WIDTH );
 	int height = glutGet( GLUT_WINDOW_HEIGHT );
@@ -57,6 +57,9 @@ void GameController::keyboardFunction(unsigned char key, int x, int y)
 		acceleration = kRacerForwardAcceleration;
 	} else if (key=='e') {
 		_players[0]->changeMode();
+		_viewController->resetCamera();
+	} else if (key=='`') {
+		_viewController->resetCamera();
 	}
 	_players[0]->accelerate(acceleration);
 }
