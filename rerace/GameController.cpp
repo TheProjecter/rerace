@@ -44,7 +44,7 @@ void GameController::mainLoop(int cursorX, int cursorY)
 
 void GameController::mouseMove(float x, float y)
 {
-	_players[0]->turn(0, x*kMouseSensitivity, 0);
+	_players[0]->turn(y*kMouseSensitivity, x*kMouseSensitivity, 0);
 }
 
 void GameController::keyboardFunction(unsigned char key, int x, int y)
@@ -55,6 +55,8 @@ void GameController::keyboardFunction(unsigned char key, int x, int y)
 		acceleration = -kRacerForwardAcceleration;
 	} else if (key=='s') {
 		acceleration = kRacerForwardAcceleration;
+	} else if (key=='e') {
+		_players[0]->changeMode();
 	}
 	_players[0]->accelerate(acceleration);
 }

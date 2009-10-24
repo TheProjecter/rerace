@@ -9,6 +9,7 @@
 
 #include "ViewController.h"
 #include "Primitives.h"
+#include <Math.h>
 
 ViewController::ViewController()
 {
@@ -63,10 +64,22 @@ void ViewController::mouseMove(float x, float y)
 	glMatrixMode(GL_PROJECTION);
 	
 	GLfloat* player1Position = _players[0]->currentVehicleLocation();
-	
+	//GLfloat player1Heading = _players[0]->currentVehicleHeading();
 	glTranslatef(player1Position[0], player1Position[1], player1Position[2]);
+	
+	/*gluLookAt(player1Position[0], player1Position[1], player1Position[2]-kCameraDistanceFromPlayer, 
+			  player1Position[0]+cos(player1Heading*M_PI/180), player1Position[1], player1Position[2]+sin(player1Heading*M_PI/180), 
+			  0, 1, 0);*/
+	
 	glRotatef(x*kMouseSensitivity, 0, 1, 0);
-	//glRotatef(y*50.0, 1, 0, 0);
+	GLfloat player1Heading = 0;
+	if(_players[0]->controllingRacer()==false)
+	{
+		player1Heading = _players[0]->currentVehicleHeading();
+		//glRotatef(y*kMouseSensitivity, 1, 0, 0);
+		glRotatef(y*kMouseSensitivity, sin((player1Heading+90)*M_PI/180), 0, cos((player1Heading+90)*M_PI/180));
+	}
+	
 	glTranslatef(-player1Position[0], -player1Position[1], -player1Position[2]);
 	
 	glMatrixMode(GL_MODELVIEW);

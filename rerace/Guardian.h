@@ -14,12 +14,19 @@ class Guardian
 public:
 	Guardian();
 	Guardian(GLfloat* startPostion);
+	~Guardian();
 	void draw();
-	GLfloat* location();
+	void move();
+	void accelerate(GLfloat distance);
 	void turn(GLfloat x, GLfloat y, GLfloat z);
 	
-	void accelerate(GLfloat distance);
+	GLfloat* location();
+	GLfloat headingX();
+	GLfloat headingY();
 		
 private:
-	GLfloat _position[3];
+	GLfloat* _position;
+	GLfloat _speed;
+	GLfloat _headingX;
+	GLfloat _headingY;
 };

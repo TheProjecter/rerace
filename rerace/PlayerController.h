@@ -22,10 +22,13 @@ public:
 	PlayerController(string name, unsigned int playerId);
 	
 	GLfloat* currentVehicleLocation();
+	GLfloat currentVehicleHeading();
+	bool controllingRacer();
 	void draw();
 	
 	void accelerate(GLfloat distance);
 	void turn(GLfloat x, GLfloat y, GLfloat z);
+	void changeMode();
 
 private:
 	unsigned int _playerId;

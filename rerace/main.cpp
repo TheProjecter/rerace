@@ -83,7 +83,7 @@ int main (int argc, char** argv) {
 	
 	// Properties
 	glEnable(GL_DEPTH_TEST);
-	//glutSetCursor(GLUT_CURSOR_NONE);
+	glutSetCursor(GLUT_CURSOR_NONE);
 	glutWarpPointer(width/2, height/2);
 	
 	//CGEventSourceSetLocalEventsSuppressionInterval(,0.0);

@@ -16,10 +16,14 @@ GLfloat* Racer::location()
 {
 	return _position;
 }
+GLfloat Racer::heading()
+{
+	return _heading;
+}
 
 Racer::Racer()
 {
-	
+	_position = new GLfloat[3];
 	_position[0] = 0;
 	_position[1] = -kCameraDistanceAbovePlayer;
 	_position[2] = -kCameraDistanceFromPlayer;
@@ -29,10 +33,16 @@ Racer::Racer()
 
 Racer::Racer(GLfloat* startPostion)
 {
+	_position = new GLfloat[3];
 	_position[0] = startPostion[0];
 	_position[1] = startPostion[1];
 	_position[2] = startPostion[2];
 	_heading = 0;
+}
+
+Racer::~Racer()
+{
+	delete _position;
 }
 
 void Racer::move()
@@ -65,7 +75,14 @@ void Racer::draw()
 	glRotatef(_heading, 0, 1, 0);
 	glTranslatef(-_position[0], -_position[1], -_position[2]);
 	
+	
 	drawCube(_position, .1);
 	
 	glPopMatrix();
+	
+	glColor3f(1.0, 0, 0);
+	glBegin(GL_LINE_STRIP);
+	glVertex3f(_position[0]-cos((_heading)*M_PI/180)*10, _position[1], _position[2]+sin((_heading)*M_PI/180)*10);
+	glVertex3f(_position[0], _position[1], _position[2]);
+	glEnd();
 }

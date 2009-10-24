@@ -13,7 +13,7 @@
 
 // Camera
 #define kCameraDistanceFromPlayer .5
-#define kCameraDistanceAbovePlayer .1
+#define kCameraDistanceAbovePlayer 0//.1
 
 // General Game
 #define kNumOfPlayers 1
@@ -27,4 +27,3 @@
 #define kRacerForwardAcceleration		.01
 #define kRacerHorizontalAcceleration	.009
 #define kRacerFriction					.002
-
