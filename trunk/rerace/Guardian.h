@@ -18,7 +18,7 @@ public:
 	void draw();
 	void move();
 	void accelerate(GLfloat distance);
-	void turn(GLfloat x, GLfloat y, GLfloat z);
+	void turn(GLfloat x, GLfloat y);
 	
 	GLfloat* location();
 	GLfloat headingX();

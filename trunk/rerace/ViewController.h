@@ -22,10 +22,13 @@ public:
 	void setPlayer(int index, PlayerController* player);
 	void mouseMove(float x, float y);
 	void moveCameraTo(float x, float y, float z);
+	void rotateCamera(float x, float y);
+	void resetCamera();
 	
 	GLfloat levelCubes[10][3];
 	
 private:
 	PlayerController* _players[kNumOfPlayers];
 	GLfloat cameraPosition[3];
+	GLfloat cameraAngle[2];
 };
