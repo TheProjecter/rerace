@@ -47,9 +47,13 @@ void timerFunction(int extra)
 	glutPostRedisplay();
 	glutTimerFunc(kGameSpeed,timerFunction,0);
 }
-void keyboardFunction(unsigned char key, int x, int y)
+void keyboardDownFunction(unsigned char key, int x, int y)
 {
-	gameController->keyboardFunction(key, x, y);
+	gameController->keyboardDownFunction(key, x, y);
+}
+void keyboardUpFunction(unsigned char key, int x, int y)
+{
+	gameController->keyboardUpFunction(key, x, y);
 }
 
 int main (int argc, char** argv) {
@@ -67,11 +71,13 @@ int main (int argc, char** argv) {
 	glutReshapeFunc(reshape);
 	glutTimerFunc(kGameSpeed, timerFunction,0);
 	glutPassiveMotionFunc(passiveMouseFunction);
-	glutKeyboardFunc(keyboardFunction);
+	glutKeyboardFunc(keyboardDownFunction);
+	glutKeyboardUpFunc(keyboardUpFunction);
 	
 	// Properties
 	glEnable(GL_DEPTH_TEST);
-	//glutSetCursor(GLUT_CURSOR_NONE);
+	glutSetCursor(GLUT_CURSOR_NONE);
+	glutSetKeyRepeat(GLUT_KEY_REPEAT_OFF);
 	
 	//CGEventSourceSetLocalEventsSuppressionInterval(,0.0);
 	CGSetLocalEventsSuppressionInterval(0.0);

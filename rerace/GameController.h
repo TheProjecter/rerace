@@ -13,7 +13,8 @@ class GameController
 public:
 	GameController(ViewController* viewController);
 	void mainLoop(int cursorX, int cursorY);
-	void keyboardFunction(unsigned char key, int x, int y);
+	void keyboardDownFunction(unsigned char key, int x, int y);
+	void keyboardUpFunction(unsigned char key, int x, int y);
 	void mouseMove(float x, float y);
 	
 private:
@@ -21,4 +22,6 @@ private:
 	ViewController* _viewController;
 	
 	int iterationCount;
+	GLfloat acceleration;
+	GLfloat turningRadius;
 };

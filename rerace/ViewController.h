@@ -11,6 +11,7 @@
 
 #include "constants.h"
 #include "PlayerController.h"
+#include "Camera.h"
 
 class ViewController
 {
@@ -21,14 +22,14 @@ public:
 	// Used to assign players from game controller
 	void setPlayer(int index, PlayerController* player);
 	void mouseMove(float x, float y);
-	void moveCameraTo(float x, float y, float z);
-	void rotateCamera(float x, float y);
+	//void moveCameraTo(float x, float y, float z);
+	//void rotateCamera(float x, float y);
+	void followPlayer(int player);
 	void resetCamera();
 	
 	GLfloat levelCubes[10][3];
 	
 private:
 	PlayerController* _players[kNumOfPlayers];
-	GLfloat cameraPosition[3];
-	GLfloat cameraAngle[2];
+	Camera*	_camera;
 };

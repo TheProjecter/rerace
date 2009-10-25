@@ -21,16 +21,18 @@ GameController::GameController(ViewController* newViewController)
 		_viewController->setPlayer(i, _players[i]);
 	}
 	iterationCount = 0;
+	acceleration = 0;
+	turningRadius = 0;
 }
 
 void GameController::mainLoop(int cursorX, int cursorY)
 {	
+	_players[0]->accelerate(acceleration);
+	_players[0]->turn(0, turningRadius, false);
+	
 	iterationCount++;
 	
-	GLfloat* player1Position = _players[0]->currentVehicleLocation();
-	
-	_viewController->moveCameraTo(player1Position[0], player1Position[1]+kCameraDistanceAbovePlayer, player1Position[2]+kCameraDistanceFromPlayer);
-	_viewController->rotateCamera(_players[0]->currentVehicleHeadingX(), _players[0]->currentVehicleHeadingY() );
+	_viewController->followPlayer(0);
 	
 	int width =	glutGet( GLUT_WINDOW_WIDTH );
 	int height = glutGet( GLUT_WINDOW_HEIGHT );
@@ -44,22 +46,51 @@ void GameController::mainLoop(int cursorX, int cursorY)
 
 void GameController::mouseMove(float x, float y)
 {
-	_players[0]->turn(y*kMouseSensitivity, x*kMouseSensitivity);
+	_players[0]->turn(y*kMouseSensitivity, x*kMouseSensitivity, true);
 }
 
-void GameController::keyboardFunction(unsigned char key, int x, int y)
+void GameController::keyboardDownFunction(unsigned char key, int x, int y)
 {
-	GLfloat acceleration = 0;
-	if(key=='w')
-	{
-		acceleration = -kRacerForwardAcceleration;
-	} else if (key=='s') {
-		acceleration = kRacerForwardAcceleration;
-	} else if (key=='e') {
-		_players[0]->changeMode();
-		_viewController->resetCamera();
-	} else if (key=='`') {
-		_viewController->resetCamera();
+	switch (key) {
+		case 'w':
+			acceleration = -kRacerForwardAcceleration;
+			break;
+		case 's':
+			acceleration = kRacerForwardAcceleration;
+			break;
+		case 'a':
+			turningRadius = -kRacerTurnRadius;
+			break;
+		case 'd':
+			turningRadius = kRacerTurnRadius;
+			break;
+		default:
+			break;
 	}
-	_players[0]->accelerate(acceleration);
+}
+void GameController::keyboardUpFunction(unsigned char key, int x, int y)
+{
+	switch (key) {
+		case 'w':
+			acceleration = 0;
+			break;
+		case 's':
+			acceleration = 0;
+			break;
+		case 'a':
+			turningRadius = 0;
+			break;
+		case 'd':
+			turningRadius = 0;
+			break;
+		case 'e':
+			_players[0]->changeMode();
+			_viewController->resetCamera();
+			break;
+		case '`':
+			_viewController->resetCamera();
+			break;
+		default:
+			break;
+	}
 }

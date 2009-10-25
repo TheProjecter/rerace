@@ -16,15 +16,12 @@
 ViewController::ViewController()
 {
 	for (int i=0; i<10; i++) {
+		levelCubes[i][0] = (GLfloat)(rand()%6)-3;
 		levelCubes[i][1] = (GLfloat)(rand()%6)-3;
-		levelCubes[i][0] = -5.0-rand()%5;
-		levelCubes[i][2] = (GLfloat)(rand()%6)-3;
+		levelCubes[i][2] = -5.0-rand()%5;
 	}
-	cameraPosition[0] = 0;
-	cameraPosition[1] = 0;
-	cameraPosition[2] = 0;	
-	cameraAngle[0] = 0;
-	cameraAngle[1] = 0;
+	
+	_camera = new Camera();
 }
 
 void ViewController::draw()
@@ -41,43 +38,36 @@ void ViewController::draw()
 }
 void ViewController::resetCamera()
 {
-	int width =	glutGet( GLUT_WINDOW_WIDTH );
-	int height = glutGet( GLUT_WINDOW_HEIGHT );
-	
-	glViewport(0, 0, width, height);
-    glMatrixMode(GL_PROJECTION);
-	
-	glLoadIdentity();
-	cameraPosition[0] = 0;
-	cameraPosition[1] = 0;
-	cameraPosition[2] = 0;
-	cameraAngle[0] = 0;
-	cameraAngle[1] = 0;
-	
-	gluPerspective(90.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
-	
-    glMatrixMode(GL_MODELVIEW);
+	_camera->reset();
 }
-void ViewController::moveCameraTo(float x, float y, float z)
+void ViewController::followPlayer(int player)
 {
-	glMatrixMode(GL_PROJECTION);
+	GLfloat* playerPosition = _players[player]->currentVehicleLocation();
+	GLfloat* playerHeading = _players[player]->currentVehicleHeading();
 	
-	glTranslatef(cameraPosition[0]-x, cameraPosition[1]-y, cameraPosition[2]-z);
-
-	glMatrixMode(GL_MODELVIEW);
-	
-	cameraPosition[0] = x;
-	cameraPosition[1] = y;
-	cameraPosition[2] = z;
+	_camera->moveTo(playerPosition[0], playerPosition[1], playerPosition[2]);
+	_camera->lookInDirection(playerHeading[0], playerHeading[1], playerHeading[2]);
 }
+/*void ViewController::moveCameraTo(float x, float y, float z)
+{
+	_camera->moveTo(x, y, z);
+}*/
+/*
 void ViewController::rotateCamera(float x, float y)
 {
+	_camera->lookInDirection(x, y);
+	/*GLfloat oldPosition[3] = {cameraPosition[0],cameraPosition[1],cameraPosition[2]};
+	resetCamera();
+	moveCameraTo(oldPosition[0], oldPosition[1], oldPosition[2]);
+	
 	glMatrixMode(GL_PROJECTION);
 	
 	glTranslatef(cameraPosition[0], cameraPosition[1]-kCameraDistanceAbovePlayer, cameraPosition[2]-kCameraDistanceFromPlayer);
+	glRotatef(cameraAngle[1]-y,0,1,0);
+	glRotatef(cameraAngle[0]-x,1,0,0);
 	
-	glRotatef(cameraAngle[1]-y, 0, 1, 0);
-	glRotatef(cameraAngle[0]-x, sinf((y+90)*M_PI/180), 0, cosf((y+90)*M_PI/180));
+	//glRotatef(cameraAngle[1]-y, -cosf((cameraAngle[0]+90)*M_PI/180), sinf((cameraAngle[0]+90)*M_PI/180), 0);
+	//glRotatef(cameraAngle[0]-x, sinf((y+90)*M_PI/180), 0, cosf((y+90)*M_PI/180));
 	
 	glTranslatef(-cameraPosition[0], -cameraPosition[1]+kCameraDistanceAbovePlayer, -cameraPosition[2]+kCameraDistanceFromPlayer);
 	
@@ -85,7 +75,7 @@ void ViewController::rotateCamera(float x, float y)
 	
 	cameraAngle[0] = x;
 	cameraAngle[1] = y;
-}
+}*/
 
 // Used to assign players from game controller
 void ViewController::setPlayer(int index, PlayerController* player)

@@ -24,6 +24,7 @@
 #define kMousePoleInterval 10
 
 // Phsyics
-#define kRacerForwardAcceleration		.01
+#define kRacerTurnRadius				3
+#define kRacerForwardAcceleration		0.0004f
 #define kRacerHorizontalAcceleration	.009
-#define kRacerFriction					.002
+#define kRacerFriction					0.0002f

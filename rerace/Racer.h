@@ -21,10 +21,11 @@ public:
 	void turn(GLfloat y);
 	
 	GLfloat* location();
-	GLfloat heading();
+	GLfloat* heading();
 	
-private:
-	GLfloat* _position;
-	GLfloat _speed;
-	GLfloat _heading;
+private:	
+	GLfloat _position[3];
+	GLfloat _speed[3];
+	GLfloat speedMag;
+	GLfloat _heading[3];
 };
