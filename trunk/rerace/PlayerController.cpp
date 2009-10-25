@@ -52,17 +52,11 @@ GLfloat* PlayerController::currentVehicleLocation()
 	return _guardian->location();
 }
 
-GLfloat PlayerController::currentVehicleHeadingX()
-{
-	if(_usingRacer)
-		return 0;
-	return _guardian->headingX();
-}
-GLfloat PlayerController::currentVehicleHeadingY()
+GLfloat* PlayerController::currentVehicleHeading()
 {
 	if(_usingRacer)
 		return _racer->heading();
-	return _guardian->headingY();
+	return _guardian->heading();
 }
 
 void PlayerController::accelerate(GLfloat distance)
@@ -73,10 +67,10 @@ void PlayerController::accelerate(GLfloat distance)
 		_guardian->accelerate(distance);
 }
 
-void PlayerController::turn(GLfloat x, GLfloat y)
+void PlayerController::turn(GLfloat x, GLfloat y, bool mouse)
 {
-	if(_usingRacer)
+	if(_usingRacer & !mouse)
 		_racer->turn(y);
-	else
+	else if(!_usingRacer & mouse)
 		_guardian->turn(x, y);
 }
