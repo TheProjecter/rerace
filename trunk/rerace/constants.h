@@ -25,6 +25,6 @@
 
 // Phsyics
 #define kRacerTurnRadius				3
-#define kRacerForwardAcceleration		0.0004f
+#define kRacerForwardAcceleration		0.0005f
 #define kRacerHorizontalAcceleration	.009
 #define kRacerFriction					0.0002f
