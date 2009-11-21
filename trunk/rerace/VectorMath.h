@@ -8,6 +8,7 @@
  */
 
 void turnVector(float* v, float x, float y);
+void rotateVectorAroundVector(float* v, float* rv, float angle);
 float dotProduct(float* v, float x, float y, float z);
 float crossProductX(float a0, float a1, float a2, float* v);
 float crossProductY(float a0, float a1, float a2, float* v);
