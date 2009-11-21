@@ -23,6 +23,7 @@ public:
 	
 	GLfloat* currentVehicleLocation();
 	GLfloat* currentVehicleHeading();
+	GLfloat* currentVehicleUp();
 	bool controllingRacer();
 	void draw();
 	

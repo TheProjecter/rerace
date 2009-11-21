@@ -11,6 +11,7 @@
 #include "Primitives.h"
 #include "constants.h"
 #include <Math.h>
+#include "VectorMath.h"
 #include <iostream>
 
 using namespace std;
@@ -22,6 +23,10 @@ GLfloat* Racer::location()
 GLfloat* Racer::heading()
 {
 	return _heading;
+}
+GLfloat* Racer::up()
+{
+	return _up;
 }
 
 Racer::Racer()
@@ -38,6 +43,10 @@ Racer::Racer()
 	_heading[0] = 0;
 	_heading[1] = 0;
 	_heading[2] = 1;
+	
+	_up[0] = 0;
+	_up[1] = 1;
+	_up[2] = 0;
 }
 
 Racer::Racer(GLfloat* startPostion)
@@ -54,6 +63,10 @@ Racer::Racer(GLfloat* startPostion)
 	_heading[0] = 0;
 	_heading[1] = 0;
 	_heading[2] = 0;
+	
+	_up[0] = 0;
+	_up[1] = 1;
+	_up[2] = 0;
 }
 
 void Racer::move()
@@ -90,11 +103,13 @@ void Racer::accelerate(GLfloat distance)
 
 void Racer::turn(GLfloat y)
 {
-	GLfloat newX = cos(y*M_PI/180)*_heading[0] - sin(y*M_PI/180)*_heading[2];
-	GLfloat newZ = sin(y*M_PI/180)*_heading[0] + cos(y*M_PI/180)*_heading[2];
+	turnVector(_heading, 0, y);
+	//GLfloat newX = cos(y*M_PI/180)*_heading[0] - sin(y*M_PI/180)*_heading[2];
+	//GLfloat newZ = sin(y*M_PI/180)*_heading[0] + cos(y*M_PI/180)*_heading[2];
 	
-	_heading[0] = newX;
-	_heading[2] = newZ;
+	//_heading[0] = newX;
+	//_heading[2] = newZ;
+	turnVector(_up, 0, y);
 }
 
 void Racer::draw()

@@ -58,6 +58,12 @@ GLfloat* PlayerController::currentVehicleHeading()
 		return _racer->heading();
 	return _guardian->heading();
 }
+GLfloat* PlayerController::currentVehicleUp()
+{
+	if(_usingRacer)
+		return _racer->up();
+	return _guardian->up();
+}
 
 void PlayerController::accelerate(GLfloat distance)
 {

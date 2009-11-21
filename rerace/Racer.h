@@ -22,10 +22,12 @@ public:
 	
 	GLfloat* location();
 	GLfloat* heading();
+	GLfloat* up();
 	
 private:	
 	GLfloat _position[3];
 	GLfloat _speed[3];
 	GLfloat speedMag;
 	GLfloat _heading[3];
+	GLfloat _up[3];
 };

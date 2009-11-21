@@ -14,7 +14,7 @@ class Camera
 public:
 	Camera();
 	void moveTo(GLfloat x, GLfloat y, GLfloat z);
-	void lookInDirection(GLfloat x, GLfloat y, GLfloat z);
+	void lookInDirection(GLfloat* forward, GLfloat* up);
 	void reset();
 	
 private:

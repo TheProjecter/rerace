@@ -9,6 +9,7 @@
 
 #include "Camera.h"
 #include <Math.h>
+#include "VectorMath.h"
 #include <iostream>
 #include "constants.h"
 
@@ -46,7 +47,7 @@ void Camera::moveTo(GLfloat x, GLfloat y, GLfloat z)
 	
 	y+=kCameraDistanceAbovePlayer;
 	z+=kCameraDistanceFromPlayer;
-	glTranslatef(position[0]-x, position[1]-y, position[2]-z);
+	glTranslatef(position[0]+x, position[1]+y, position[2]+z);
 	
 	glMatrixMode(GL_MODELVIEW);
 	
@@ -55,59 +56,38 @@ void Camera::moveTo(GLfloat x, GLfloat y, GLfloat z)
 	position[2] = z;
 }
 
-GLfloat dotProduct(GLfloat* v1, GLfloat x, GLfloat y, GLfloat z)
-{
-	return v1[0]*x + v1[1]*y + v1[2]*z;
-}
-GLfloat crossProductX(GLfloat a0, GLfloat a1, GLfloat a2, GLfloat* v2)
-{
-	return a1*v2[2]-a2*v2[1];
-}
-GLfloat crossProductY(GLfloat a0, GLfloat a1, GLfloat a2, GLfloat* v2)
-{
-	return a0*v2[2]-a2*v2[0];
-}
-GLfloat crossProductZ(GLfloat a0, GLfloat a1, GLfloat a2, GLfloat* v2)
-{
-	return a0*v2[1]-a1*v2[0];
-}
-
-void Camera::lookInDirection(GLfloat x, GLfloat y, GLfloat z)
+void Camera::lookInDirection(GLfloat* forward, GLfloat* up)
 {
 	glMatrixMode(GL_PROJECTION);
 	
-	glTranslatef(position[0], position[1]-kCameraDistanceAbovePlayer, position[2]-kCameraDistanceFromPlayer);
+	glLoadIdentity();
+	gluPerspective(90.0f,(GLfloat)glutGet( GLUT_WINDOW_WIDTH )/(GLfloat)glutGet( GLUT_WINDOW_HEIGHT ),0.1f,100.0f);
 	
-	/*GLfloat angleOrig = atanf(direction[2]/direction[0])*180/M_PI;
-	if(direction[0]<=0 & direction[2]<=0)
-		angleOrig+=180;
-	GLfloat angleNew = atanf(z/x)*180/M_PI;
-	if(x<=0 & z<=0)
-		angleNew+=180;
-	cout<<z<<" / "<<x<<" = "<<angleNew<<endl;
-	glRotatef(angleNew-angleOrig, 0, 1, 0);*/
+	glTranslatef(0, -kCameraDistanceAbovePlayer, -kCameraDistanceFromPlayer);
 	
-	GLfloat newDirection[3] = {x, y, z};
+	/*GLfloat up[3], forward[3], right[3];
+	forward[0]=x;
+	forward[1]=y;
+	forward[2]=z;
 	
-	GLfloat xrot = acosf( dotProduct(direction, 1, 0, 0) );
-	GLfloat yrot = acosf( dotProduct(direction, 0, 1, 0) );
-	GLfloat zrot = acosf( dotProduct(direction, 0, 0, 1) );
-	cout<<direction[0]<<" "<<direction[1]<<" "<<direction[2]<<endl;
-	//cout<<xrot*180/M_PI<<" "<<yrot*180/M_PI<<" "<<zrot*180/M_PI<<endl;
+	GLfloat theta = atanf(x / z);
+	right[0] = sinf(theta-M_PI/2);
+	right[1] = 0;
+	right[2] = cosf(theta-M_PI/2);
 	
-	GLfloat xrotN = acosf( dotProduct(newDirection, 1, 0, 0) );
-	GLfloat yrotN = acosf( dotProduct(newDirection, 0, 1, 0) );
-	GLfloat zrotN = acosf( dotProduct(newDirection, 0, 0, 1) );
+	cross(forward, right, up);*/
+	/*if(acosf(dotProduct(forward, 0, 1, 0)>M_PI))
+		yup = 1;
+	else
+		yup = -1;*/
 	
-	glRotatef(-.5*(xrot-xrotN)*180/M_PI, crossProductX(1, 0, 0, newDirection), crossProductY(1, 0, 0, newDirection), crossProductZ(1, 0, 0, newDirection));
-	glRotatef(-.5*(yrot-yrotN)*180/M_PI, crossProductX(0, 1, 0, newDirection), crossProductY(0, 1, 0, newDirection), crossProductZ(0, 1, 0, newDirection));
-	glRotatef(-.5*(zrot-zrotN)*180/M_PI, crossProductX(0, 0, 1, newDirection), crossProductY(0, 0, 1, newDirection), crossProductZ(0, 0, 1, newDirection));
+	gluLookAt(position[0], position[1], position[2], position[0]-forward[0], position[1]+forward[1], position[2]-forward[2], 0, 1, 0);
 	
-	glTranslatef(-position[0], -position[1]+kCameraDistanceAbovePlayer, -position[2]+kCameraDistanceFromPlayer);
+	glTranslatef(0, kCameraDistanceAbovePlayer, kCameraDistanceFromPlayer);
 	
 	glMatrixMode(GL_MODELVIEW);
 	
-	direction[0] = x;
-	direction[1] = y;
-	direction[2] = z;
+	direction[0] = forward[0];
+	direction[1] = forward[1];
+	direction[2] = forward[2];
 }
