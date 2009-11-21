@@ -125,7 +125,6 @@ void Guardian::draw()
 			  //-_position[0]+_heading[0], -_position[1]-_heading[1], -_position[2]-_heading[2],
 			  //0, 1, 0);
 			 _up[0], _up[1], -_up[2]);*/
-	GLfloat center[3] = {0, 0, 0};
 	
 	/*glColor3f(1.0, 0, 0);
 	glBegin(GL_LINE_STRIP);
@@ -135,7 +134,7 @@ void Guardian::draw()
 	glVertex3f(0, 1, 0);
 	glEnd();*/
 	
-	drawCube(center, .1);
+	drawCube(.1);
 	
 	glPopMatrix();
 	

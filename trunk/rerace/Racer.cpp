@@ -134,10 +134,9 @@ void Racer::draw()
 	else
 		glRotatef(atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
 	
+	drawCube(.1);
+	
 	glTranslatef(-_position[0], -_position[1], -_position[2]);
-	
-	
-	drawCube(_position, .1);
 	
 	glPopMatrix();
 	
