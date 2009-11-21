@@ -17,6 +17,14 @@ void drawRect(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd)
 	glVertex3fv(vd);
 }
 
+void drawTriangle(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd)
+{	
+	glVertex3fv(va);
+	glVertex3fv(vb);
+	glVertex3fv(vc);
+	
+}
+
 void drawCube(GLfloat *point, GLfloat size)
 {	
 	glBegin(GL_QUADS);
@@ -37,7 +45,7 @@ void drawCube(GLfloat *point, GLfloat size)
 	GLfloat colors[6][3] = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0},
 		{0.0, 0.0, 1.0}, {1.0, 1.0, 0.0}, {0.0, 1.0, 1.0}, {1.0, 0.0, 1.0}};
 	
-	// Top
+	// Bottom
     glColor3fv(colors[0]);
     drawRect(a, b, c, d);
 	
@@ -49,17 +57,33 @@ void drawCube(GLfloat *point, GLfloat size)
     glColor3fv(colors[2]);
     drawRect(d, c, g, h);
 	
-	// Bottom
+	// Top
     glColor3fv(colors[3]);
     drawRect(e, f, g, h);
 	
-	// Back
+	// Front
     glColor3fv(colors[4]);
     drawRect(a, d, h, e);
 	
-	// Front
+	// Back
     glColor3fv(colors[5]);
     drawRect(b, c, g, f);
 	
 	glEnd();
+}
+
+void drawTet(GLfloat *point, GLfloat size)
+{	
+	glBegin(GL_QUADS);
+	GLfloat x = point[0] - size/2.0;
+	GLfloat y = point[1] - size/2.0;
+	GLfloat z = point[2] - size/2.0;
+	
+	GLfloat a[3] = {x, y, z};
+	GLfloat b[3] = {x, y, z};
+	GLfloat c[3] = {x+size, y, z};
+	GLfloat d[3] = {x, y, z};
+	
+	GLfloat colors[6][3] = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0},
+		{0.0, 0.0, 1.0}, {1.0, 1.0, 0.0}, {0.0, 1.0, 1.0}, {1.0, 0.0, 1.0}};
 }

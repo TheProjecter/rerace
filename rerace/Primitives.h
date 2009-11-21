@@ -9,4 +9,6 @@
 #include <GLUT/GLUT.h>
 
 void drawRect(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd);
+void drawtriangle(GLfloat *va, GLfloat *vb, GLfloat *vc);
 void drawCube(GLfloat *point, GLfloat size);
+void drawTet(GLfloat *point, GLfloat size);
