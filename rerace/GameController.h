@@ -17,6 +17,9 @@ public:
 	void keyboardUpFunction(unsigned char key, int x, int y);
 	void mouseMove(float x, float y);
 	
+	bool canTurnHorizontal;
+	bool canTurnVertical;
+	
 private:
 	PlayerController* _players[kNumOfPlayers];
 	ViewController* _viewController;

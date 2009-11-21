@@ -81,7 +81,7 @@ void Camera::lookInDirection(GLfloat* forward, GLfloat* up)
 	else
 		yup = -1;*/
 	
-	gluLookAt(position[0], position[1], position[2], position[0]-forward[0], position[1]+forward[1], position[2]-forward[2], 0, 1, 0);
+	gluLookAt(position[0], position[1], position[2], position[0]-forward[0], position[1]-forward[1], position[2]-forward[2], up[0], up[1], up[2]);
 	
 	glTranslatef(0, kCameraDistanceAbovePlayer, kCameraDistanceFromPlayer);
 	

@@ -46,7 +46,15 @@ void GameController::mainLoop(int cursorX, int cursorY)
 
 void GameController::mouseMove(float x, float y)
 {
-	_players[0]->turn(y*kMouseSensitivity, x*kMouseSensitivity, true);
+	float turnYRadius = y*kMouseSensitivity;
+	float turnXRadius = x*kMouseSensitivity;
+	
+	if(!canTurnVertical)
+		turnXRadius = 0;
+	if(!canTurnHorizontal)
+		turnYRadius = 0;
+	
+	_players[0]->turn(turnYRadius, turnXRadius, true);
 }
 
 void GameController::keyboardDownFunction(unsigned char key, int x, int y)
@@ -63,6 +71,12 @@ void GameController::keyboardDownFunction(unsigned char key, int x, int y)
 			break;
 		case 'd':
 			turningRadius = kRacerTurnRadius;
+			break;
+		case '1':
+			canTurnVertical = true;
+			break;
+		case '2':
+			canTurnHorizontal = true;
 			break;
 		default:
 			break;
@@ -89,6 +103,12 @@ void GameController::keyboardUpFunction(unsigned char key, int x, int y)
 			break;
 		case '`':
 			_viewController->resetCamera();
+			break;
+		case '1':
+			canTurnVertical = false;
+			break;
+		case '2':
+			canTurnHorizontal = false;
 			break;
 		default:
 			break;

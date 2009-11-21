@@ -38,10 +38,13 @@ Guardian::Guardian()
 	_speed = 0;
 	_heading[0] = 0;
 	_heading[1] = 0;
-	_heading[2] = 1;
+	_heading[2] = -1;
 	_up[0] = 0;
 	_up[1] = 1;
 	_up[2] = 0;
+	_right[0] = -1;
+	_right[1] = 0;
+	_right[2] = 0;
 }
 
 Guardian::Guardian(GLfloat* startPostion)
@@ -57,6 +60,9 @@ Guardian::Guardian(GLfloat* startPostion)
 	_up[0] = 0;
 	_up[1] = 1;
 	_up[2] = 0;
+	_right[0] = 1;
+	_right[1] = 0;
+	_right[2] = 0;
 }
 
 Guardian::~Guardian()
@@ -108,15 +114,17 @@ void Guardian::draw()
 		glRotatef(atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
 	}*/
 	
+	glLoadIdentity();
+	
 	glTranslatef(_position[0], _position[1], _position[2]);
 	
-	gluLookAt(0, 0, 0,
+	/*gluLookAt(0, 0, 0,
 			  //-_position[0], -_position[1], -_position[2],
 			  _heading[0],-_heading[1],-_heading[2],
 			  //_position[0]+_up[0],-_position[1]+_up[1],-_position[2]+_up[2]);
 			  //-_position[0]+_heading[0], -_position[1]-_heading[1], -_position[2]-_heading[2],
 			  //0, 1, 0);
-			 0, 1, 0);
+			 _up[0], _up[1], -_up[2]);*/
 	GLfloat center[3] = {0, 0, 0};
 	
 	/*glColor3f(1.0, 0, 0);
@@ -143,9 +151,7 @@ void Guardian::draw()
 	glBegin(GL_LINE_STRIP);
 	glVertex3f(sinf(_heading[1]*M_PI/180)*cosf((_heading[0]-90)*M_PI/180)*10, sinf((_heading[0]-90)*M_PI/180)*10, cosf(_heading[1]*M_PI/180)*cosf((_heading[1]-90)*M_PI/180)*10);
 	glVertex3f(0,0,0);
-	glEnd();
-	
-	
+	glEnd();*/
 	
 	// Draw Heading
 	glColor3f(0, 1.0, 0);
@@ -157,8 +163,12 @@ void Guardian::draw()
 	glColor3f(1.0, 0, 0);
 	glVertex3f(_position[0], _position[1], _position[2]);
 	glVertex3f(_position[0]+_up[0],_position[1]+_up[1],_position[2]+_up[2]);
-	glEnd();*/
 	
+	// Draw Right
+	glColor3f(0, 0, 1.0);
+	glVertex3f(_position[0], _position[1], _position[2]);
+	glVertex3f(_position[0]+_right[0],_position[1]+_right[1],_position[2]+_right[2]);
+	glEnd();
 	
 }
 
@@ -168,7 +178,14 @@ void Guardian::accelerate(GLfloat distance)
 }
 void Guardian::turn(GLfloat x, GLfloat y)
 {
-	// Heading Vector
-	turnVector(_heading, x, y);
-	turnVector(_up, x, y);
+	// Horizontal Rotation
+	rotateVectorAroundVector(_heading, _up, -y*M_PI/180);
+	rotateVectorAroundVector(_right, _up, -y*M_PI/180);
+	
+	// Vertical Rotation
+	rotateVectorAroundVector(_heading, _right, x*M_PI/180);
+	rotateVectorAroundVector(_up, _right, -x*M_PI/180);
+	
+	//turnVector(_heading, x, y);
+	//turnVector(_up, x, y);
 }

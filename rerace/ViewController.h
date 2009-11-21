@@ -27,7 +27,7 @@ public:
 	void followPlayer(int player);
 	void resetCamera();
 	
-	GLfloat levelCubes[10][3];
+	GLfloat levelCubes[20][3];
 	
 private:
 	PlayerController* _players[kNumOfPlayers];

@@ -15,7 +15,7 @@
 
 ViewController::ViewController()
 {
-	for (int i=0; i<10; i++) {
+	for (int i=0; i<20; i++) {
 		levelCubes[i][0] = (GLfloat)(rand()%6)-3;
 		levelCubes[i][1] = (GLfloat)(rand()%6)-3;
 		levelCubes[i][2] = -5.0-rand()%5;
