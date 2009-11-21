@@ -29,4 +29,5 @@ private:
 	GLfloat _speed;
 	GLfloat _heading[3];
 	GLfloat _up[3];
+	GLfloat _right[3];
 };
