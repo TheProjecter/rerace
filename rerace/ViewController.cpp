@@ -28,8 +28,9 @@ void ViewController::draw()
 {
 	// Write General Drawing Code (probably level and background)
 	for (int i=0; i<10; i++) {
-
-		drawCube(levelCubes[i], .25);
+		glTranslatef(levelCubes[i][0], levelCubes[i][1], levelCubes[i][2]);
+		drawCube(.25);
+		glTranslatef(-levelCubes[i][0], -levelCubes[i][1], -levelCubes[i][2]);
 	}
 	// Draw Players
 	for(int i=0; i<kNumOfPlayers; i++)
