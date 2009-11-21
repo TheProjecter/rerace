@@ -25,12 +25,12 @@ void drawTriangle(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd)
 	
 }
 
-void drawCube(GLfloat *point, GLfloat size)
+void drawCube(GLfloat size)
 {	
 	glBegin(GL_QUADS);
-	GLfloat x = point[0] - size/2.0;
-	GLfloat y = point[1] - size/2.0;
-	GLfloat z = point[2] - size/2.0;
+	GLfloat x = - size/2.0;
+	GLfloat y = - size/2.0;
+	GLfloat z = - size/2.0;
 	
 	GLfloat a[3] = {x, y, z};
 	GLfloat b[3] = {x ,y, z+size};
@@ -72,12 +72,12 @@ void drawCube(GLfloat *point, GLfloat size)
 	glEnd();
 }
 
-void drawTet(GLfloat *point, GLfloat size)
+void drawTet(GLfloat size)
 {	
-	glBegin(GL_QUADS);
-	GLfloat x = point[0] - size/2.0;
-	GLfloat y = point[1] - size/2.0;
-	GLfloat z = point[2] - size/2.0;
+	/*glBegin(GL_QUADS);
+	GLfloat x = - size/2.0;
+	GLfloat y = - size/2.0;
+	GLfloat z = - size/2.0;
 	
 	GLfloat a[3] = {x, y, z};
 	GLfloat b[3] = {x, y, z};
@@ -86,4 +86,5 @@ void drawTet(GLfloat *point, GLfloat size)
 	
 	GLfloat colors[6][3] = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0},
 		{0.0, 0.0, 1.0}, {1.0, 1.0, 0.0}, {0.0, 1.0, 1.0}, {1.0, 0.0, 1.0}};
+	 */
 }
