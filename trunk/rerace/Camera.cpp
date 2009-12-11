@@ -47,6 +47,7 @@ void Camera::moveTo(GLfloat x, GLfloat y, GLfloat z)
 	
 	glMatrixMode(GL_PROJECTION);
 	
+	// Offset camera to be slightly behind and above player
 	y+=kCameraDistanceAbovePlayer;
 	z+=kCameraDistanceFromPlayer;
 	glTranslatef(position[0]+x, position[1]+y, position[2]+z);
