@@ -11,7 +11,7 @@
 		4955FD4F1096325F00B80A12 /* VectorMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4955FD4E1096325F00B80A12 /* VectorMath.cpp */; };
 		4962E87E10B8A1BB00528676 /* UnixImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4962E87D10B8A1BB00528676 /* UnixImageIO.framework */; };
 		4962E98D10B8A2FD00528676 /* PNGTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4962E98C10B8A2FD00528676 /* PNGTexture.cpp */; };
-		4962EAB410B8B1B700528676 /* numbers.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49C99C9610B8988B002B61CB /* numbers.png */; };
+		4962EAB410B8B1B700528676 /* numbers.png in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 49C99C9610B8988B002B61CB /* numbers.png */; };
 		496DA7D110921A440016E1FB /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496DA7D010921A440016E1FB /* ApplicationServices.framework */; };
 		4991852A1093A969008C788A /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 499185291093A969008C788A /* Camera.cpp */; };
 		49C843CC109125FA0052A1AA /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C843CB109125FA0052A1AA /* GLUT.framework */; };
@@ -21,27 +21,44 @@
 		49C845E1109147610052A1AA /* PlayerController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C845E0109147610052A1AA /* PlayerController.cpp */; };
 		49C845E4109148CF0052A1AA /* Guardian.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C845E3109148CF0052A1AA /* Guardian.cpp */; };
 		49C99BA110B88A40002B61CB /* InformationOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C99BA010B88A40002B61CB /* InformationOverlay.cpp */; };
-		49CB5E73109A4F630038D166 /* level1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49CB5E72109A4F500038D166 /* level1.txt */; };
+		49CB5E73109A4F630038D166 /* level1.txt in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 49CB5E72109A4F500038D166 /* level1.txt */; };
+		49E897A810D22BE90010A65F /* f-16.mtl in Copy Data Files */ = {isa = PBXBuildFile; fileRef = 537FA33D10D1DA0B00FCDF26 /* f-16.mtl */; };
+		49E897A910D22BE90010A65F /* f-16.obj in Copy Data Files */ = {isa = PBXBuildFile; fileRef = 537FA33E10D1DA0B00FCDF26 /* f-16.obj */; };
+		49E897AA10D22BE90010A65F /* porsche.mtl in Copy Data Files */ = {isa = PBXBuildFile; fileRef = 537FA33F10D1DA0B00FCDF26 /* porsche.mtl */; };
+		49E897AB10D22BE90010A65F /* porsche.obj in Copy Data Files */ = {isa = PBXBuildFile; fileRef = 537FA34010D1DA0B00FCDF26 /* porsche.obj */; };
 		49FA57231091F8EA001CE911 /* Primitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49FA57221091F8EA001CE911 /* Primitives.cpp */; };
 		530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 530A68AE10911A8800C87CD4 /* Racer.cpp */; };
 		537FA28D10D1D40300FCDF26 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA28B10D1D40300FCDF26 /* glm.cpp */; };
 		537FA2D410D1D58500FCDF26 /* DrawingObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA2D310D1D58500FCDF26 /* DrawingObjects.cpp */; };
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
-		8DD76F6A0486A84900D96B5E /* rerace.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* rerace.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8DD76F690486A84900D96B5E /* CopyFiles */ = {
+		49E8969F10D22BBE0010A65F /* Copy Data Files */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 8;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 2147483647;
+			dstPath = data;
+			dstSubfolderSpec = 6;
 			files = (
-				4962EAB410B8B1B700528676 /* numbers.png in CopyFiles */,
-				49CB5E73109A4F630038D166 /* level1.txt in CopyFiles */,
-				8DD76F6A0486A84900D96B5E /* rerace.1 in CopyFiles */,
+				49E897A810D22BE90010A65F /* f-16.mtl in Copy Data Files */,
+				49E897A910D22BE90010A65F /* f-16.obj in Copy Data Files */,
+				49E897AA10D22BE90010A65F /* porsche.mtl in Copy Data Files */,
+				49E897AB10D22BE90010A65F /* porsche.obj in Copy Data Files */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			name = "Copy Data Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DD76F690486A84900D96B5E /* Copy Other Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				4962EAB410B8B1B700528676 /* numbers.png in Copy Other Files */,
+				49CB5E73109A4F630038D166 /* level1.txt in Copy Other Files */,
+			);
+			name = "Copy Other Files";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -249,7 +266,8 @@
 			buildPhases = (
 				8DD76F640486A84900D96B5E /* Sources */,
 				8DD76F660486A84900D96B5E /* Frameworks */,
-				8DD76F690486A84900D96B5E /* CopyFiles */,
+				49E8969F10D22BBE0010A65F /* Copy Data Files */,
+				8DD76F690486A84900D96B5E /* Copy Other Files */,
 			);
 			buildRules = (
 			);
