@@ -12,6 +12,32 @@ int width = 0;
 int height = 0;
 int lastPoint[2] = {-1, -1};
 
+void initLighting(void){
+
+	
+	
+	//glEnable(GL_LIGHTING);
+	/*float	ambient[4] = {1.0f, 1.0f, 1.0f, 0.0f}; 
+	float diffuse[4] = {1.0f, 1.0f, 1.0f, 1.0f}; 
+	float position[3] = {0, 0, 0};
+
+	GLfloat mat_specular[4] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[4] = { 50.0 };
+	glClearColor (0.0, 0.0, 0.0, 0.0);
+	glShadeModel (GL_SMOOTH);
+	
+	glMaterialfv(GL_FRONT, GL_AMBIENT, ambient); 
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse); 
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	glLightfv(GL_LIGHT0, GL_POSITION, position); 
+
+	
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+	glEnable(GL_DEPTH_TEST);*/
+}
+
 void display(void)
 {
 	/* clear window */
@@ -82,15 +108,7 @@ int main (int argc, char** argv) {
 	glutSetCursor(GLUT_CURSOR_NONE);
 	glutSetKeyRepeat(GLUT_KEY_REPEAT_OFF);
 	
-	//glEnable(GL_LIGHTING);
-	float ambient[4] = {1.0f, 1.0f, 1.0f, 1.0f}; 
-	float diffuse[4] = {1.0f, 1.0f, 1.0f, 1.0f}; 
-	float specular[4] = {0.5f, 0.5f, 0.5f, 1.0f}; 
-	float shine = 5.0f; 
-	glMaterialfv(GL_FRONT, GL_AMBIENT, ambient); 
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse); 
-	glMaterialfv(GL_FRONT, GL_SPECULAR, specular); 
-	glMaterialf(GL_FRONT, GL_SHININESS, shine); 
+	initLighting();
 	
 	//CGEventSourceSetLocalEventsSuppressionInterval(,0.0);
 	CGSetLocalEventsSuppressionInterval(0.0);

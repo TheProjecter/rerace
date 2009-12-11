@@ -32,17 +32,18 @@ ViewController::~ViewController()
 
 void ViewController::draw()
 {
-	// Write General Drawing Code (probably level and background)
-	for (int i=0; i<10; i++) {
-		glTranslatef(levelCubes[i][0], levelCubes[i][1], levelCubes[i][2]);
-		drawCube(.25);
-		glTranslatef(-levelCubes[i][0], -levelCubes[i][1], -levelCubes[i][2]);
-	}
-	
 	// Draw Players
 	for(int i=0; i<kNumOfPlayers; i++)
 		_players[i]->draw();
 	
+	// Write General Drawing Code (probably level and background)
+	for (int i=0; i<10; i++) {
+		glTranslatef(levelCubes[i][0], levelCubes[i][1], levelCubes[i][2]);
+		glutSolidTeapot(.25);
+		//drawCube(.25);
+		glTranslatef(-levelCubes[i][0], -levelCubes[i][1], -levelCubes[i][2]);
+	}
+
 	// Reset View and Draw Overlay (in 2D)
 	/*glMatrixMode(GL_PROJECTION);
 	glDisable(GL_DEPTH_TEST);

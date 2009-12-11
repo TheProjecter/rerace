@@ -18,7 +18,7 @@ GLuint _racerList;
 GLuint _guardianList;
 
 void loadRacer()
-{
+{	
 	string model_name = "data/porsche.obj";
 	
 	GLMmodel* pmodel;
@@ -47,25 +47,44 @@ void loadGuardian()
 
 void drawRacer(void* racer)
 {
-	//glEnable(GL_LIGHTING);
 	
-	glMatrixMode(GL_PROJECTION);
+	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[] = { 50.0 };
+	GLfloat light_position[] = {0, 0, -0.2};
+	glClearColor (0.0, 0.0, 0.0, 0.0);
+	glShadeModel (GL_SMOOTH);
+	
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+	
+	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
-	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 10.0f);
-	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 0.0f);
-	float position[3] = {0, 0, -20};
+	glEnable(GL_DEPTH_TEST);
+		
+	//glEnable(GL_LIGHTING);
+	/*glEnable(GL_LIGHT0);
+	glMatrixMode(GL_PROJECTION);
+	
+	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[] = { 50.0 };
 	float direction[3] = {0,0,1};
-	float light_diffuse[4] = {0.5f, 0.5f, 0.5f, 1.0f};
+	//GLfloat light_position[] = { 0.0, 0.0, 0.0 };
+	glShadeModel (GL_SMOOTH);
 	
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse); 
-	glLightfv(GL_LIGHT0, GL_SPECULAR, light_diffuse); 
-	glLightfv(GL_LIGHT0, GL_POSITION, position); 
-	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, direction); 
-	glMatrixMode(GL_MODELVIEW);  
-	//glDisable(GL_LIGHTING);
-	//glutSolidCube(.1);
-	//drawCube(.1);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	glLightfv(GL_LIGHT0, GL_POSITION, ((Racer*)racer)->location());
+	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 180.0f);
+	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 0.0f);
+	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, ((Racer*)racer)->heading()); 
 	
+	
+	glEnable(GL_LIGHT0);
+	glEnable(GL_DEPTH_TEST);
+	
+	glMatrixMode(GL_MODELVIEW);
+	 */
 	glCallList(_racerList);
 }
 void drawGuardian(void* guardian)
