@@ -32,6 +32,7 @@
 		530442D910D24E55007F053A /* S4.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 530442D210D24E35007F053A /* S4.raw */; };
 		530442DA10D24E55007F053A /* S5.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 530442D310D24E35007F053A /* S5.raw */; };
 		530442DB10D24E55007F053A /* S6.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 530442D410D24E35007F053A /* S6.raw */; };
+		530442FD10D25099007F053A /* S1.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 530442FA10D2508F007F053A /* S1.raw */; };
 		530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 530A68AE10911A8800C87CD4 /* Racer.cpp */; };
 		531C8F1E10D232AC00E8ADDD /* S1Diffus.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 531C8F1610D2329100E8ADDD /* S1Diffus.raw */; };
 		537FA28D10D1D40300FCDF26 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA28B10D1D40300FCDF26 /* glm.cpp */; };
@@ -65,6 +66,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
+				530442FD10D25099007F053A /* S1.raw in Copy Other Files */,
 				530442D710D24E55007F053A /* S2.raw in Copy Other Files */,
 				530442D810D24E55007F053A /* S3.raw in Copy Other Files */,
 				530442D910D24E55007F053A /* S4.raw in Copy Other Files */,
@@ -115,6 +117,7 @@
 		530442D210D24E35007F053A /* S4.raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = S4.raw; sourceTree = "<group>"; };
 		530442D310D24E35007F053A /* S5.raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = S5.raw; sourceTree = "<group>"; };
 		530442D410D24E35007F053A /* S6.raw */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = S6.raw; sourceTree = "<group>"; };
+		530442FA10D2508F007F053A /* S1.raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = S1.raw; sourceTree = "<group>"; };
 		530A68AD10911A8800C87CD4 /* Racer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Racer.h; sourceTree = "<group>"; };
 		530A68AE10911A8800C87CD4 /* Racer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Racer.cpp; sourceTree = "<group>"; };
 		531C8F1610D2329100E8ADDD /* S1Diffus.raw */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = S1Diffus.raw; sourceTree = "<group>"; };
@@ -252,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				53A4C31410D22CD100F71311 /* back.raw */,
+				530442FA10D2508F007F053A /* S1.raw */,
 				530442D010D24E35007F053A /* S2.raw */,
 				530442D110D24E35007F053A /* S3.raw */,
 				530442D210D24E35007F053A /* S4.raw */,
