@@ -16,6 +16,7 @@ int lastPoint[2] = {-1, -1};
 
 void initLighting(void){
 
+	//Default ambient lighing for models
 	GLfloat mat_ambient[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_shininess[] = { 50.0 };
@@ -28,7 +29,7 @@ void initLighting(void){
 	
 	glEnable(GL_LIGHTING);
 	
-	
+	//Light0 - racer
 	GLfloat light0_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
 	GLfloat light0_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light0_specular[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -37,13 +38,13 @@ void initLighting(void){
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, light0_diffuse);
 	glLightfv(GL_LIGHT0, GL_SPECULAR, light0_specular);
 	glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, 1.5);
-	glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.5);
+	glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.0);
 	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.0);
 	
 	glEnable(GL_LIGHT0);
 	
 	
-	
+	//Light1 - guardian
 	GLfloat light1_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
 	GLfloat light1_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light1_specular[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -52,11 +53,13 @@ void initLighting(void){
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, light1_diffuse);
 	glLightfv(GL_LIGHT1, GL_SPECULAR, light1_specular);
 	glLightf(GL_LIGHT1, GL_CONSTANT_ATTENUATION, 1.5);
-	glLightf(GL_LIGHT1, GL_LINEAR_ATTENUATION, 0.5);
+	glLightf(GL_LIGHT1, GL_LINEAR_ATTENUATION, 0.0);
 	glLightf(GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.0);
 	
 	glEnable(GL_LIGHT1);
 	
+	
+	//Light2 - sky light
 	GLfloat light2_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
 	GLfloat light2_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light2_specular[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -67,11 +70,12 @@ void initLighting(void){
 	glLightfv(GL_LIGHT2, GL_SPECULAR, light2_specular);
 	glLightfv(GL_LIGHT2, GL_POSITION, light2_position);
 	glLightf(GL_LIGHT2, GL_CONSTANT_ATTENUATION, 1.0);
-	glLightf(GL_LIGHT2, GL_LINEAR_ATTENUATION, 0.5);
+	glLightf(GL_LIGHT2, GL_LINEAR_ATTENUATION, 0.1);
 	glLightf(GL_LIGHT2, GL_QUADRATIC_ATTENUATION, 0.0);
 	
 	glEnable(GL_LIGHT2);
 
+	//Light3 - sky light
 	GLfloat light3_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
 	GLfloat light3_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light3_specular[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -82,7 +86,7 @@ void initLighting(void){
 	glLightfv(GL_LIGHT3, GL_SPECULAR, light3_specular);
 	glLightfv(GL_LIGHT3, GL_POSITION, light3_position);
 	glLightf(GL_LIGHT3, GL_CONSTANT_ATTENUATION, 1.0);
-	glLightf(GL_LIGHT3, GL_LINEAR_ATTENUATION, 0.5);
+	glLightf(GL_LIGHT3, GL_LINEAR_ATTENUATION, 0.1);
 	glLightf(GL_LIGHT3, GL_QUADRATIC_ATTENUATION, 0.0);
 	
 	glEnable(GL_LIGHT3);
