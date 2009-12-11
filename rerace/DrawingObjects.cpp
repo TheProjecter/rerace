@@ -48,12 +48,12 @@ void loadGuardian()
 void drawRacer(void* racer)
 {
 	GLfloat spot_direction[] = {0,0,1};
-	GLfloat light1_position[] = { 0.0, 0.0, 0.2, 1.0 };
+	GLfloat light0_position[] = { 0.0, 0.0, -0.2, 1.0 };
 	
-	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 18.0);
-	glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spot_direction);
-	glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 2.0);
-	glLightfv(GL_LIGHT1, GL_POSITION, light1_position);
+	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 18.0);
+	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, spot_direction);
+	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 2.0);
+	glLightfv(GL_LIGHT0, GL_POSITION, light0_position);
 
 
 	glCallList(_racerList);
@@ -62,12 +62,12 @@ void drawGuardian(void* guardian)
 {
 
 	GLfloat spot_direction[] = {0,0,1};
-	GLfloat light1_position[] = { 0.0, 0.0, 0.2, 1.0 };
+	GLfloat light1_position[] = { 0.0, 0.0, -0.2, 1.0 };
 	
-	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 18.0);
-	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, spot_direction);
-	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 2.0);
-	glLightfv(GL_LIGHT0, GL_POSITION, light1_position);
+	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 18.0);
+	glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spot_direction);
+	glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 2.0);
+	glLightfv(GL_LIGHT1, GL_POSITION, light1_position);
 	
 	glCallList(_guardianList);
 }

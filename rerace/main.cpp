@@ -14,15 +14,30 @@ int lastPoint[2] = {-1, -1};
 
 void initLighting(void){
 
+	GLfloat mat_ambient[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_shininess[] = { 50.0 };
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
 	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
 	
 	glClearColor (0.0, 0.0, 0.0, 0.0);
 	glShadeModel (GL_SMOOTH);
 	
 	glEnable(GL_LIGHTING);
+	
+	
+	GLfloat light0_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
+	GLfloat light0_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat light0_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	
+	glLightfv(GL_LIGHT0, GL_AMBIENT, light0_ambient);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, light0_diffuse);
+	glLightfv(GL_LIGHT0, GL_SPECULAR, light0_specular);
+	glLightf(GL_LIGHT0, GL_CONSTANT_ATTENUATION, 1.5);
+	glLightf(GL_LIGHT0, GL_LINEAR_ATTENUATION, 0.5);
+	glLightf(GL_LIGHT0, GL_QUADRATIC_ATTENUATION, 0.0);
+	
 	glEnable(GL_LIGHT0);
 	
 	
@@ -34,12 +49,41 @@ void initLighting(void){
 	glLightfv(GL_LIGHT1, GL_AMBIENT, light1_ambient);
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, light1_diffuse);
 	glLightfv(GL_LIGHT1, GL_SPECULAR, light1_specular);
-	glLightf(GL_LIGHT1, GL_CONSTANT_ATTENUATION, 1.0);
-	glLightf(GL_LIGHT1, GL_LINEAR_ATTENUATION, 0.0);
+	glLightf(GL_LIGHT1, GL_CONSTANT_ATTENUATION, 1.5);
+	glLightf(GL_LIGHT1, GL_LINEAR_ATTENUATION, 0.5);
 	glLightf(GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.0);
 	
 	glEnable(GL_LIGHT1);
 	
+	GLfloat light2_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
+	GLfloat light2_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat light2_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat light2_position[] = { 0.0, 0.0, 0.0, 1.0 };
+	
+	glLightfv(GL_LIGHT2, GL_AMBIENT, light2_ambient);
+	glLightfv(GL_LIGHT2, GL_DIFFUSE, light2_diffuse);
+	glLightfv(GL_LIGHT2, GL_SPECULAR, light2_specular);
+	glLightfv(GL_LIGHT2, GL_POSITION, light2_position);
+	glLightf(GL_LIGHT2, GL_CONSTANT_ATTENUATION, 1.0);
+	glLightf(GL_LIGHT2, GL_LINEAR_ATTENUATION, 0.3);
+	glLightf(GL_LIGHT2, GL_QUADRATIC_ATTENUATION, 0.0);
+	
+	glEnable(GL_LIGHT2);
+
+	GLfloat light3_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
+	GLfloat light3_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat light3_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat light3_position[] = { 0.0, 0.0, -20.0, 1.0 };
+	
+	glLightfv(GL_LIGHT3, GL_AMBIENT, light3_ambient);
+	glLightfv(GL_LIGHT3, GL_DIFFUSE, light3_diffuse);
+	glLightfv(GL_LIGHT3, GL_SPECULAR, light3_specular);
+	glLightfv(GL_LIGHT3, GL_POSITION, light3_position);
+	glLightf(GL_LIGHT3, GL_CONSTANT_ATTENUATION, 1.0);
+	glLightf(GL_LIGHT3, GL_LINEAR_ATTENUATION, 0.3);
+	glLightf(GL_LIGHT3, GL_QUADRATIC_ATTENUATION, 0.0);
+	
+	glEnable(GL_LIGHT3);
 }
 
 void display(void)
