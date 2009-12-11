@@ -24,6 +24,8 @@
 		49CB5E73109A4F630038D166 /* level1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49CB5E72109A4F500038D166 /* level1.txt */; };
 		49FA57231091F8EA001CE911 /* Primitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49FA57221091F8EA001CE911 /* Primitives.cpp */; };
 		530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 530A68AE10911A8800C87CD4 /* Racer.cpp */; };
+		537FA28D10D1D40300FCDF26 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA28B10D1D40300FCDF26 /* glm.cpp */; };
+		537FA2D410D1D58500FCDF26 /* DrawingObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA2D310D1D58500FCDF26 /* DrawingObjects.cpp */; };
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
 		8DD76F6A0486A84900D96B5E /* rerace.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859E8B029090EE04C91782 /* rerace.1 */; };
 /* End PBXBuildFile section */
@@ -75,6 +77,14 @@
 		49FA57221091F8EA001CE911 /* Primitives.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Primitives.cpp; sourceTree = "<group>"; };
 		530A68AD10911A8800C87CD4 /* Racer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Racer.h; sourceTree = "<group>"; };
 		530A68AE10911A8800C87CD4 /* Racer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Racer.cpp; sourceTree = "<group>"; };
+		537FA28B10D1D40300FCDF26 /* glm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glm.cpp; sourceTree = "<group>"; };
+		537FA28C10D1D40300FCDF26 /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
+		537FA2D210D1D58500FCDF26 /* DrawingObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingObjects.h; sourceTree = "<group>"; };
+		537FA2D310D1D58500FCDF26 /* DrawingObjects.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DrawingObjects.cpp; sourceTree = "<group>"; };
+		537FA33D10D1DA0B00FCDF26 /* f-16.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "f-16.mtl"; sourceTree = "<group>"; };
+		537FA33E10D1DA0B00FCDF26 /* f-16.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "f-16.obj"; sourceTree = "<group>"; };
+		537FA33F10D1DA0B00FCDF26 /* porsche.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = porsche.mtl; sourceTree = "<group>"; };
+		537FA34010D1DA0B00FCDF26 /* porsche.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = porsche.obj; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* rerace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rerace; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* rerace.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = rerace.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +107,7 @@
 		08FB7794FE84155DC02AAC07 /* rerace */ = {
 			isa = PBXGroup;
 			children = (
+				537FA33A10D1D9E800FCDF26 /* Models */,
 				49C99C9110B89880002B61CB /* images */,
 				49CB5E71109A4F380038D166 /* Levels */,
 				08FB7795FE84155DC02AAC07 /* Source */,
@@ -113,6 +124,8 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				537FA28B10D1D40300FCDF26 /* glm.cpp */,
+				537FA28C10D1D40300FCDF26 /* glm.h */,
 				49508ED81099414200EC02DF /* Environment */,
 				4955FD501096326300B80A12 /* Math */,
 				49C846B810914D490052A1AA /* Drawing */,
@@ -185,6 +198,8 @@
 				49C99BA010B88A40002B61CB /* InformationOverlay.cpp */,
 				4962E98B10B8A2FD00528676 /* PNGTexture.h */,
 				4962E98C10B8A2FD00528676 /* PNGTexture.cpp */,
+				537FA2D210D1D58500FCDF26 /* DrawingObjects.h */,
+				537FA2D310D1D58500FCDF26 /* DrawingObjects.cpp */,
 			);
 			name = Drawing;
 			sourceTree = "<group>";
@@ -204,6 +219,17 @@
 				49CB5E72109A4F500038D166 /* level1.txt */,
 			);
 			name = Levels;
+			sourceTree = "<group>";
+		};
+		537FA33A10D1D9E800FCDF26 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				537FA33D10D1DA0B00FCDF26 /* f-16.mtl */,
+				537FA33E10D1DA0B00FCDF26 /* f-16.obj */,
+				537FA33F10D1DA0B00FCDF26 /* porsche.mtl */,
+				537FA34010D1DA0B00FCDF26 /* porsche.obj */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		C6859E8C029090F304C91782 /* Documentation */ = {
@@ -269,6 +295,8 @@
 				49508EDB1099415700EC02DF /* Course.cpp in Sources */,
 				49C99BA110B88A40002B61CB /* InformationOverlay.cpp in Sources */,
 				4962E98D10B8A2FD00528676 /* PNGTexture.cpp in Sources */,
+				537FA28D10D1D40300FCDF26 /* glm.cpp in Sources */,
+				537FA2D410D1D58500FCDF26 /* DrawingObjects.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

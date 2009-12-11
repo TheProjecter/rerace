@@ -13,6 +13,7 @@
 #include <Math.h>
 #include "VectorMath.h"
 #include <iostream>
+#include "DrawingObjects.h"
 
 using namespace std;
 
@@ -45,6 +46,8 @@ Guardian::Guardian()
 	_right[0] = 1;
 	_right[1] = 0;
 	_right[2] = 0;
+	
+	loadGuardian();
 }
 
 Guardian::Guardian(GLfloat* startPostion)
@@ -63,6 +66,8 @@ Guardian::Guardian(GLfloat* startPostion)
 	_right[0] = 0;
 	_right[1] = -1;
 	_right[2] = 0;
+	
+	loadGuardian();
 }
 
 Guardian::~Guardian()
@@ -135,6 +140,7 @@ void Guardian::draw()
 	glEnd();*/
 	
 	//drawCube(.1);
+	drawGuardian(this);
 	
 	glPopMatrix();
 	
