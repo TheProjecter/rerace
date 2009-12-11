@@ -70,7 +70,7 @@ void GameController::mouseMove(float x, float y)
 // Function to control players with keyboard
 void GameController::keyboardDownFunction(unsigned char key, int x, int y)
 {
-	switch (key) {
+	switch (tolower(key)) {
 		case 'w': // move racer forward
 			acceleration = -kRacerForwardAcceleration;
 			break;
@@ -96,7 +96,7 @@ void GameController::keyboardDownFunction(unsigned char key, int x, int y)
 // Functions to control players with keyboard
 void GameController::keyboardUpFunction(unsigned char key, int x, int y)
 {
-	switch (key) {
+	switch (tolower(key)) {
 		case 'w':
 			acceleration = 0;
 			break;
