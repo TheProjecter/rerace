@@ -9,6 +9,7 @@
       preservation of edges, welding redundant vertices & texture
       coordinate generation (spheremap and planar projections) + more.
 
+	  Modified by Andrew Wagner and Keith Thompson
  */
 
 

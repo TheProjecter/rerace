@@ -2,7 +2,7 @@
  *  Racer.cpp
  *  rerace
  *
- *  Created by Andrew Wagner on 10/22/09.
+ *  Created by Andrew Wagner and Keith Thompson on 10/22/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
  */
@@ -139,11 +139,8 @@ void Racer::turn(GLfloat y)
 void Racer::draw()
 {
 	move();
-	
 	glPushMatrix();
-	
 	glTranslatef(_position[0], _position[1], _position[2]);
-	
 	if(_heading[2]<0)
 		glRotatef(180+atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
 	else
@@ -151,6 +148,5 @@ void Racer::draw()
 	
 	glRotatef(180, 0, 1, 0);
 	drawRacer(this);
-	
 	glPopMatrix();
 }

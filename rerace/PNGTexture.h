@@ -4,7 +4,7 @@
  *
  *	File to read in png files and generate a texture from them
  *
- *  Created by Andrew Wagner on 11/21/09.
+ *  Created by Andrew Wagner and Keith Thompson on 11/21/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
  */

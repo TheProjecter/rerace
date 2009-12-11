@@ -2,7 +2,7 @@
  *  Primitives.cpp
  *  rerace
  *
- *  Created by Andrew Wagner on 10/23/09.
+ *  Created by Andrew Wagner and Keith Thompson on 10/23/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
  */
@@ -10,6 +10,7 @@
 #include "Primitives.h"
 #include "glm.h"
 
+// Draw any given model in glm.h
 void drawmodel(string model)
 {
 	GLMmodel* pmodel;
@@ -22,7 +23,7 @@ void drawmodel(string model)
 	glmDraw(pmodel, GLM_SMOOTH | GLM_MATERIAL, NULL);
 }
 
-
+// Draw Rectangle (used for drawCube)
 void drawRect(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd)
 {
 	glVertex3fv(va);
@@ -31,6 +32,7 @@ void drawRect(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd)
 	glVertex3fv(vd);
 }
 
+// Draw Triangle
 void drawTriangle(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd)
 {	
 	glVertex3fv(va);
@@ -39,6 +41,7 @@ void drawTriangle(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd)
 	
 }
 
+// Draw a simple Cube, each face is a different color
 void drawCube(GLfloat size)
 {	
 	glBegin(GL_QUADS);
@@ -84,21 +87,4 @@ void drawCube(GLfloat size)
     drawRect(b, c, g, f);
 	
 	glEnd();
-}
-
-void drawTet(GLfloat size)
-{	
-	/*glBegin(GL_QUADS);
-	GLfloat x = - size/2.0;
-	GLfloat y = - size/2.0;
-	GLfloat z = - size/2.0;
-	
-	GLfloat a[3] = {x, y, z};
-	GLfloat b[3] = {x, y, z};
-	GLfloat c[3] = {x+size, y, z};
-	GLfloat d[3] = {x, y, z};
-	
-	GLfloat colors[6][3] = {{1.0, 0.0, 0.0}, {0.0, 1.0, 0.0},
-		{0.0, 0.0, 1.0}, {1.0, 1.0, 0.0}, {0.0, 1.0, 1.0}, {1.0, 0.0, 1.0}};
-	 */
 }

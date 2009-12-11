@@ -5,7 +5,7 @@
  *	Acts as generic player object as a proxy and calls the 
  *	appropriate functions on either guardian or racer
  *
- *  Created by Andrew Wagner on 10/22/09.
+ *  Created by Andrew Wagner and Keith Thompson on 10/22/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
  */

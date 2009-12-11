@@ -1,5 +1,5 @@
 /*    
-      glm.c
+      glm.cpp
       Nate Robins, 1997, 2000
       nate@pobox.com, http://www.pobox.com/~nate
  
@@ -8,6 +8,8 @@
       Includes routines for generating smooth normals with
       preservation of edges, welding redundant vertices & texture
       coordinate generation (spheremap and planar projections) + more.
+ 
+	  Modified by Andrew Wagner and Keith Thompson
   
 */
 

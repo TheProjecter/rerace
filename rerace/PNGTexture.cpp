@@ -2,7 +2,7 @@
  *  PNGTexture.cpp
  *  rerace
  *
- *  Created by Andrew Wagner on 11/21/09.
+ *  Created by Andrew Wagner and Keith Thompson on 11/21/09.
  *  Code Found at: http://macdevcenter.com/pub/a/mac/2005/10/14/texture-maps.html?page=1
  *
  */

@@ -2,7 +2,7 @@
  *  ViewController.h
  *  rerace
  *
- *  Created by Andrew Wagner on 10/22/09.
+ *  Created by Andrew Wagner and Keith Thompson on 10/22/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
  */
@@ -15,8 +15,8 @@
 #include "Camera.h"
 #include "DrawingObjects.h"
 
-void glutSolidCube2(GLdouble size, GLuint textures[6]);
-static void drawBox2(GLfloat size, GLenum type, GLuint textures[6]);
+void SolidTextureCube(GLdouble size, GLuint textures[6]);
+static void drawTextureBox(GLfloat size, GLenum type, GLuint textures[6]);
 
 class ViewController
 {
