@@ -17,19 +17,25 @@
 
 using namespace std;
 
+// return the position
 GLfloat* Guardian::location()
 {
 	return _position;
 }
+
+// return the heading
 GLfloat* Guardian::heading()
 {
 	return _heading;
 }
+
+// return the up vector
 GLfloat* Guardian::up()
 {
 	return _up;
 }
 
+// Initialize guardian to position 0,0,0 (calls init from drawing objects)
 Guardian::Guardian()
 {
 	_position = new GLfloat[3];
@@ -50,6 +56,7 @@ Guardian::Guardian()
 	loadGuardian();
 }
 
+// Initialize guardian to position (calls init from drawing objects)
 Guardian::Guardian(GLfloat* startPostion)
 {
 	_position = new GLfloat[3];
@@ -75,6 +82,7 @@ Guardian::~Guardian()
 	delete _position;
 }
 
+// Move the guardian based on current speed
 void Guardian::move()
 {
 	_position[0] += _speed*_heading[0];
@@ -87,6 +95,7 @@ void Guardian::move()
 		_speed+=kRacerFriction;
 }
 
+// Draw the guardian (calls draw from DrawingObjects)
 void Guardian::draw()
 {
 	move();
@@ -98,19 +107,15 @@ void Guardian::draw()
 	
 	gluLookAt(0, 0, 0,
 			  _heading[0],_heading[1],-_heading[2],
-			  //0,1,0);
 			  _up[0], _up[1], -_up[2]);
-	
-	//gluLookAt(_position[0], _position[1], _position[2], _position[0]-_heading[0], _position[1]-_heading[1], _position[2]-_heading[2], _up[0], _up[1], _up[2]);
-	
-	//glTranslatef(_position[0], _position[1], _position[2]);
 	
 	glRotatef(180, 0, 1, 0);
 	drawGuardian(this);
 	
 	glPopMatrix();
 	
-	/*
+	/* For debugging vectors:
+	 
 	// Draw Heading
 	glColor3f(0, 1.0, 0);
 	glBegin(GL_LINE_STRIP);
@@ -127,13 +132,17 @@ void Guardian::draw()
 	glVertex3f(_position[0], _position[1], _position[2]);
 	glVertex3f(_position[0]+_right[0]/4,_position[1]+_right[1]/4,_position[2]+_right[2]/4);
 	glEnd();
+	 
 	 */
 }
 
+// accelerate the guardian in the direction of the current heading
 void Guardian::accelerate(GLfloat distance)
 {
 	_speed += distance;
 }
+
+// turn the vector around the current right and up vectors
 void Guardian::turn(GLfloat x, GLfloat y)
 {
 	// Horizontal Rotation
