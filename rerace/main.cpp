@@ -14,28 +14,16 @@ int lastPoint[2] = {-1, -1};
 
 void initLighting(void){
 
+	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[] = { 50.0 };
+	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 	
-	
-	//glEnable(GL_LIGHTING);
-	/*float	ambient[4] = {1.0f, 1.0f, 1.0f, 0.0f}; 
-	float diffuse[4] = {1.0f, 1.0f, 1.0f, 1.0f}; 
-	float position[3] = {0, 0, 0};
-
-	GLfloat mat_specular[4] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat mat_shininess[4] = { 50.0 };
 	glClearColor (0.0, 0.0, 0.0, 0.0);
 	glShadeModel (GL_SMOOTH);
 	
-	glMaterialfv(GL_FRONT, GL_AMBIENT, ambient); 
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse); 
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-	glLightfv(GL_LIGHT0, GL_POSITION, position); 
-
-	
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
-	glEnable(GL_DEPTH_TEST);*/
 }
 
 void display(void)
