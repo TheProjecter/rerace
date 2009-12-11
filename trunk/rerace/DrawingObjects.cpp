@@ -42,20 +42,15 @@ GLuint LoadTextureRAW( const char * filename, int width, int height, int wrap, b
 	// select our current texture
 	glBindTexture( GL_TEXTURE_2D, texture );
 	// select modulate to mix texture with color for shading
-	glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE );
-	// when texture area is small, bilinear filter the closest mipmap
-	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST );
-	// when texture area is large, bilinear filter the first mipmap
-	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR );
-	// if wrap is true, the texture wraps over at the edges (repeat)
-	// ... false, the texture ends at the edges (clamp)
-	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrap ? GL_REPEAT : GL_CLAMP );
-	glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrap ? GL_REPEAT : GL_CLAMP );
-	// build our texture mipmaps
 	gluBuild2DMipmaps( GL_TEXTURE_2D, transparent ? GL_RGBA : 3, width, height, transparent ? GL_RGBA : GL_RGB, GL_UNSIGNED_BYTE, data );
-	// free buffer
 	free( data );
-	glBindTexture(GL_TEXTURE_2D, NULL);
+	
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S , GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T , GL_CLAMP);
+
+	//glBindTexture(GL_TEXTURE_2D, NULL);
 	return texture;
 	
 } 

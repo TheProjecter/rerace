@@ -92,9 +92,16 @@ void ViewController::renderSkybox(){
 	glPushMatrix();
 	glTranslatef(cords[0], cords[1], cords[2]);
 	//glBindTexture(GL_TEXTURE_2D, textureBack);
-	glDisable(GL_LIGHTING);
+	GLfloat mat_ambient[] = { 3.0, 3.0, 3.0, 3.0 };
+	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat mat_shininess[] = { 50.0 };
+	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, mat_specular);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mat_shininess);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, mat_ambient);//glDisable(GL_LIGHTING);
+	
+	
 	glutSolidCube2(500, skybox);
-	glEnable(GL_LIGHTING);
+	//glEnable(GL_LIGHTING);
 	glPopMatrix();
 	
 }
