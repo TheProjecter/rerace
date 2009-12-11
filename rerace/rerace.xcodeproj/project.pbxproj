@@ -34,6 +34,7 @@
 		530442DB10D24E55007F053A /* S6.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 530442D410D24E35007F053A /* S6.raw */; };
 		530442FD10D25099007F053A /* S1.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 530442FA10D2508F007F053A /* S1.raw */; };
 		530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 530A68AE10911A8800C87CD4 /* Racer.cpp */; };
+		5329FFA610D254490035DFC2 /* S1Diffus.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 5304431510D2526F007F053A /* S1Diffus.raw */; };
 		537FA28D10D1D40300FCDF26 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA28B10D1D40300FCDF26 /* glm.cpp */; };
 		537FA2D410D1D58500FCDF26 /* DrawingObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA2D310D1D58500FCDF26 /* DrawingObjects.cpp */; };
 		53A4C31510D22CE600F71311 /* back.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 53A4C31410D22CD100F71311 /* back.raw */; };
@@ -65,6 +66,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 6;
 			files = (
+				5329FFA610D254490035DFC2 /* S1Diffus.raw in Copy Other Files */,
 				530442FD10D25099007F053A /* S1.raw in Copy Other Files */,
 				530442D710D24E55007F053A /* S2.raw in Copy Other Files */,
 				530442D810D24E55007F053A /* S3.raw in Copy Other Files */,
