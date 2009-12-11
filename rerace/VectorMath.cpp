@@ -10,24 +10,6 @@
 #include "VectorMath.h"
 #include <Math.h>
 
-void turnVector(float* v, float x, float y)
-{
-	
-	float newX = cos(y*M_PI/180)*v[0] - sin(y*M_PI/180)*v[2];
-	float newZ = sin(y*M_PI/180)*v[0] + cos(y*M_PI/180)*v[2];
-	
-	v[0] = newX;
-	v[2] = newZ;
-	
-	float newY = cos(x*M_PI/180)*v[1] - sin(x*M_PI/180)*v[2];
-		  newZ = sin(x*M_PI/180)*v[1] + cos(x*M_PI/180)*v[2];
-	
-	if(newY < 1)
-	{
-		v[1] = newY;
-		v[2] = newZ;
-	}
-}
 void rotateVectorAroundVector(float* v, float* rv, float angle)
 {
 	float vNewView[3] = {0,0,0};
