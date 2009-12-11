@@ -11,12 +11,14 @@
 
 #include "constants.h"
 #include "PlayerController.h"
+#include "InformationOverlay.h"
 #include "Camera.h"
 
 class ViewController
 {
 public:
 	ViewController();
+	~ViewController();
 	
 	void draw();
 	// Used to assign players from game controller
@@ -29,7 +31,12 @@ public:
 	
 	GLfloat levelCubes[20][3];
 	
+	unsigned int raceTime;
+	int position;
+	int lap;
+	
 private:
 	PlayerController* _players[kNumOfPlayers];
 	Camera*	_camera;
+	InformationOverlay* _infoOverlay;
 };

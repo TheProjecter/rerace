@@ -38,11 +38,11 @@ Guardian::Guardian()
 	_speed = 0;
 	_heading[0] = 0;
 	_heading[1] = 0;
-	_heading[2] = -1;
+	_heading[2] = 1;
 	_up[0] = 0;
 	_up[1] = 1;
 	_up[2] = 0;
-	_right[0] = -1;
+	_right[0] = 1;
 	_right[1] = 0;
 	_right[2] = 0;
 }
@@ -60,8 +60,8 @@ Guardian::Guardian(GLfloat* startPostion)
 	_up[0] = 0;
 	_up[1] = 1;
 	_up[2] = 0;
-	_right[0] = 1;
-	_right[1] = 0;
+	_right[0] = 0;
+	_right[1] = -1;
 	_right[2] = 0;
 }
 
@@ -118,13 +118,13 @@ void Guardian::draw()
 	
 	glTranslatef(_position[0], _position[1], _position[2]);
 	
-	/*gluLookAt(0, 0, 0,
+	gluLookAt(0, 0, 0,
 			  //-_position[0], -_position[1], -_position[2],
-			  _heading[0],-_heading[1],-_heading[2],
+			  -_heading[0],-_heading[1],-_heading[2],
 			  //_position[0]+_up[0],-_position[1]+_up[1],-_position[2]+_up[2]);
 			  //-_position[0]+_heading[0], -_position[1]-_heading[1], -_position[2]-_heading[2],
 			  //0, 1, 0);
-			 _up[0], _up[1], -_up[2]);*/
+			 -_up[0], -_up[1], -_up[2]);
 	
 	/*glColor3f(1.0, 0, 0);
 	glBegin(GL_LINE_STRIP);
@@ -134,7 +134,7 @@ void Guardian::draw()
 	glVertex3f(0, 1, 0);
 	glEnd();*/
 	
-	drawCube(.1);
+	//drawCube(.1);
 	
 	glPopMatrix();
 	
@@ -156,17 +156,17 @@ void Guardian::draw()
 	glColor3f(0, 1.0, 0);
 	glBegin(GL_LINE_STRIP);
 	glVertex3f(_position[0], _position[1], _position[2]);
-	glVertex3f(_position[0]-_heading[0],_position[1]+_heading[1],_position[2]-_heading[2]);
+	glVertex3f(_position[0]-_heading[0]/4,_position[1]-_heading[1]/4,_position[2]-_heading[2]/4);
 	
 	// Draw Up
 	glColor3f(1.0, 0, 0);
 	glVertex3f(_position[0], _position[1], _position[2]);
-	glVertex3f(_position[0]+_up[0],_position[1]+_up[1],_position[2]+_up[2]);
+	glVertex3f(_position[0]+_up[0]/4,_position[1]+_up[1]/4,_position[2]+_up[2]/4);
 	
 	// Draw Right
 	glColor3f(0, 0, 1.0);
 	glVertex3f(_position[0], _position[1], _position[2]);
-	glVertex3f(_position[0]+_right[0],_position[1]+_right[1],_position[2]+_right[2]);
+	glVertex3f(_position[0]+_right[0]/4,_position[1]+_right[1]/4,_position[2]+_right[2]/4);
 	glEnd();
 	
 }
@@ -182,8 +182,10 @@ void Guardian::turn(GLfloat x, GLfloat y)
 	rotateVectorAroundVector(_right, _up, -y*M_PI/180);
 	
 	// Vertical Rotation
-	rotateVectorAroundVector(_heading, _right, x*M_PI/180);
+	rotateVectorAroundVector(_heading, _right, -x*M_PI/180);
 	rotateVectorAroundVector(_up, _right, -x*M_PI/180);
+	
+	//cout<<x<<" "<<y<<endl;
 	
 	//turnVector(_heading, x, y);
 	//turnVector(_up, x, y);

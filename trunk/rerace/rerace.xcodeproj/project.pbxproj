@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		49508EDB1099415700EC02DF /* Course.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49508EDA1099415700EC02DF /* Course.cpp */; };
 		4955FD4F1096325F00B80A12 /* VectorMath.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4955FD4E1096325F00B80A12 /* VectorMath.cpp */; };
+		4962E87E10B8A1BB00528676 /* UnixImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4962E87D10B8A1BB00528676 /* UnixImageIO.framework */; };
+		4962E98D10B8A2FD00528676 /* PNGTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4962E98C10B8A2FD00528676 /* PNGTexture.cpp */; };
+		4962EAB410B8B1B700528676 /* numbers.png in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49C99C9610B8988B002B61CB /* numbers.png */; };
 		496DA7D110921A440016E1FB /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496DA7D010921A440016E1FB /* ApplicationServices.framework */; };
 		4991852A1093A969008C788A /* Camera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 499185291093A969008C788A /* Camera.cpp */; };
 		49C843CC109125FA0052A1AA /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49C843CB109125FA0052A1AA /* GLUT.framework */; };
@@ -17,6 +20,7 @@
 		49C8453A10913E140052A1AA /* ViewController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C8453910913E140052A1AA /* ViewController.cpp */; };
 		49C845E1109147610052A1AA /* PlayerController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C845E0109147610052A1AA /* PlayerController.cpp */; };
 		49C845E4109148CF0052A1AA /* Guardian.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C845E3109148CF0052A1AA /* Guardian.cpp */; };
+		49C99BA110B88A40002B61CB /* InformationOverlay.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C99BA010B88A40002B61CB /* InformationOverlay.cpp */; };
 		49CB5E73109A4F630038D166 /* level1.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 49CB5E72109A4F500038D166 /* level1.txt */; };
 		49FA57231091F8EA001CE911 /* Primitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49FA57221091F8EA001CE911 /* Primitives.cpp */; };
 		530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 530A68AE10911A8800C87CD4 /* Racer.cpp */; };
@@ -31,6 +35,7 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
+				4962EAB410B8B1B700528676 /* numbers.png in CopyFiles */,
 				49CB5E73109A4F630038D166 /* level1.txt in CopyFiles */,
 				8DD76F6A0486A84900D96B5E /* rerace.1 in CopyFiles */,
 			);
@@ -44,6 +49,9 @@
 		49508EDA1099415700EC02DF /* Course.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Course.cpp; sourceTree = "<group>"; };
 		4955FD4D1096325F00B80A12 /* VectorMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VectorMath.h; sourceTree = "<group>"; };
 		4955FD4E1096325F00B80A12 /* VectorMath.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VectorMath.cpp; sourceTree = "<group>"; };
+		4962E87D10B8A1BB00528676 /* UnixImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UnixImageIO.framework; sourceTree = "<group>"; };
+		4962E98B10B8A2FD00528676 /* PNGTexture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PNGTexture.h; sourceTree = "<group>"; };
+		4962E98C10B8A2FD00528676 /* PNGTexture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PNGTexture.cpp; sourceTree = "<group>"; };
 		496DA7D010921A440016E1FB /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		499185281093A969008C788A /* Camera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera.h; sourceTree = "<group>"; };
 		499185291093A969008C788A /* Camera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Camera.cpp; sourceTree = "<group>"; };
@@ -59,6 +67,10 @@
 		49C845E2109148CF0052A1AA /* Guardian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Guardian.h; sourceTree = "<group>"; };
 		49C845E3109148CF0052A1AA /* Guardian.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Guardian.cpp; sourceTree = "<group>"; };
 		49C846B910914D530052A1AA /* Primitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Primitives.h; sourceTree = "<group>"; };
+		49C99B9F10B88A40002B61CB /* InformationOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationOverlay.h; sourceTree = "<group>"; };
+		49C99BA010B88A40002B61CB /* InformationOverlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InformationOverlay.cpp; sourceTree = "<group>"; };
+		49C99C9610B8988B002B61CB /* numbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = numbers.png; sourceTree = "<group>"; };
+		49C99D4D10B89E4E002B61CB /* numbers.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = numbers.tga; sourceTree = "<group>"; };
 		49CB5E72109A4F500038D166 /* level1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = level1.txt; sourceTree = "<group>"; };
 		49FA57221091F8EA001CE911 /* Primitives.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Primitives.cpp; sourceTree = "<group>"; };
 		530A68AD10911A8800C87CD4 /* Racer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Racer.h; sourceTree = "<group>"; };
@@ -75,6 +87,7 @@
 				49C843CC109125FA0052A1AA /* GLUT.framework in Frameworks */,
 				49C843D21091261A0052A1AA /* OpenGL.framework in Frameworks */,
 				496DA7D110921A440016E1FB /* ApplicationServices.framework in Frameworks */,
+				4962E87E10B8A1BB00528676 /* UnixImageIO.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +97,7 @@
 		08FB7794FE84155DC02AAC07 /* rerace */ = {
 			isa = PBXGroup;
 			children = (
+				49C99C9110B89880002B61CB /* images */,
 				49CB5E71109A4F380038D166 /* Levels */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6859E8C029090F304C91782 /* Documentation */,
@@ -91,6 +105,7 @@
 				49C843CB109125FA0052A1AA /* GLUT.framework */,
 				49C843D11091261A0052A1AA /* OpenGL.framework */,
 				496DA7D010921A440016E1FB /* ApplicationServices.framework */,
+				4962E87D10B8A1BB00528676 /* UnixImageIO.framework */,
 			);
 			name = rerace;
 			sourceTree = "<group>";
@@ -166,8 +181,21 @@
 			children = (
 				49C846B910914D530052A1AA /* Primitives.h */,
 				49FA57221091F8EA001CE911 /* Primitives.cpp */,
+				49C99B9F10B88A40002B61CB /* InformationOverlay.h */,
+				49C99BA010B88A40002B61CB /* InformationOverlay.cpp */,
+				4962E98B10B8A2FD00528676 /* PNGTexture.h */,
+				4962E98C10B8A2FD00528676 /* PNGTexture.cpp */,
 			);
 			name = Drawing;
+			sourceTree = "<group>";
+		};
+		49C99C9110B89880002B61CB /* images */ = {
+			isa = PBXGroup;
+			children = (
+				49C99C9610B8988B002B61CB /* numbers.png */,
+				49C99D4D10B89E4E002B61CB /* numbers.tga */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		49CB5E71109A4F380038D166 /* Levels */ = {
@@ -239,6 +267,8 @@
 				4991852A1093A969008C788A /* Camera.cpp in Sources */,
 				4955FD4F1096325F00B80A12 /* VectorMath.cpp in Sources */,
 				49508EDB1099415700EC02DF /* Course.cpp in Sources */,
+				49C99BA110B88A40002B61CB /* InformationOverlay.cpp in Sources */,
+				4962E98D10B8A2FD00528676 /* PNGTexture.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +280,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
@@ -268,6 +302,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = rerace;
