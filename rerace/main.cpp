@@ -12,6 +12,8 @@ int width = 0;
 int height = 0;
 int lastPoint[2] = {-1, -1};
 
+// load an RGB .RAW file as a texture
+
 void initLighting(void){
 
 	GLfloat mat_ambient[] = { 1.0, 1.0, 1.0, 1.0 };
@@ -65,7 +67,7 @@ void initLighting(void){
 	glLightfv(GL_LIGHT2, GL_SPECULAR, light2_specular);
 	glLightfv(GL_LIGHT2, GL_POSITION, light2_position);
 	glLightf(GL_LIGHT2, GL_CONSTANT_ATTENUATION, 1.0);
-	glLightf(GL_LIGHT2, GL_LINEAR_ATTENUATION, 0.3);
+	glLightf(GL_LIGHT2, GL_LINEAR_ATTENUATION, 0.5);
 	glLightf(GL_LIGHT2, GL_QUADRATIC_ATTENUATION, 0.0);
 	
 	glEnable(GL_LIGHT2);
@@ -80,7 +82,7 @@ void initLighting(void){
 	glLightfv(GL_LIGHT3, GL_SPECULAR, light3_specular);
 	glLightfv(GL_LIGHT3, GL_POSITION, light3_position);
 	glLightf(GL_LIGHT3, GL_CONSTANT_ATTENUATION, 1.0);
-	glLightf(GL_LIGHT3, GL_LINEAR_ATTENUATION, 0.3);
+	glLightf(GL_LIGHT3, GL_LINEAR_ATTENUATION, 0.5);
 	glLightf(GL_LIGHT3, GL_QUADRATIC_ATTENUATION, 0.0);
 	
 	glEnable(GL_LIGHT3);
@@ -157,6 +159,7 @@ int main (int argc, char** argv) {
 	glutSetKeyRepeat(GLUT_KEY_REPEAT_OFF);
 	
 	initLighting();
+	
 	
 	//CGEventSourceSetLocalEventsSuppressionInterval(,0.0);
 	CGSetLocalEventsSuppressionInterval(0.0);

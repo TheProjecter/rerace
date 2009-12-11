@@ -181,8 +181,8 @@
 		49C84577109140C20052A1AA /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
-				530A68AD10911A8800C87CD4 /* Racer.h */,
 				530A68AE10911A8800C87CD4 /* Racer.cpp */,
+				530A68AD10911A8800C87CD4 /* Racer.h */,
 				49C845E2109148CF0052A1AA /* Guardian.h */,
 				49C845E3109148CF0052A1AA /* Guardian.cpp */,
 			);
