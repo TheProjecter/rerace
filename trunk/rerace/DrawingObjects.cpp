@@ -78,7 +78,7 @@ void loadGuardian()
 	glmUnitize(pmodel);
 	glmFacetNormals(pmodel);
 	glmVertexNormals(pmodel, 90.0);
-    glmScale(pmodel, .3);
+    glmScale(pmodel, .2);
 	_guardianList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL, NULL);
 }
 
@@ -135,7 +135,7 @@ void drawRock(){
 void drawRacer(void* racer)
 {
 	GLfloat spot_direction[] = {0,0,1};
-	GLfloat light0_position[] = { 0.0, 0.0, -0.2, 1.0 };
+	GLfloat light0_position[] = { 0.0, 0.0, -0.6, 1.0 };
 	
 	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 18.0);
 	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, spot_direction);
@@ -149,7 +149,7 @@ void drawGuardian(void* guardian)
 {
 
 	GLfloat spot_direction[] = {0,0,1};
-	GLfloat light1_position[] = { 0.0, 0.0, -0.2, 1.0 };
+	GLfloat light1_position[] = { 0.0, 0.0, -0.6, 1.0 };
 	
 	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 18.0);
 	glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spot_direction);
