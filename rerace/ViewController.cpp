@@ -15,10 +15,11 @@
 
 ViewController::ViewController()
 {
-	for (int i=0; i<20; i++) {
-		levelCubes[i][0] = (GLfloat)(rand()%6)-3;
-		levelCubes[i][1] = (GLfloat)(rand()%6)-3;
-		levelCubes[i][2] = -5.0-rand()%5;
+	srand(time(0));
+	for (int i=0; i<100; i++) {
+		levelCubes[i][0] = ((GLfloat)(rand()%10000)-5000.0)/1000.0;
+		levelCubes[i][1] = ((GLfloat)(rand()%10000)-5000.0)/1000.0;
+		levelCubes[i][2] = ((GLfloat)(rand()%10000)-5000.0)/1000.0;
 	}
 	
 	_camera = new Camera();

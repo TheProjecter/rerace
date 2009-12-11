@@ -2,6 +2,8 @@
  *  PNGTexture.h
  *  rerace
  *
+ *	File to read in png files and generate a texture from them
+ *
  *  Created by Andrew Wagner on 11/21/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
