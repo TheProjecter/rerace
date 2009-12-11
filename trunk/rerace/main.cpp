@@ -82,6 +82,16 @@ int main (int argc, char** argv) {
 	glutSetCursor(GLUT_CURSOR_NONE);
 	glutSetKeyRepeat(GLUT_KEY_REPEAT_OFF);
 	
+	//glEnable(GL_LIGHTING);
+	float ambient[4] = {1.0f, 1.0f, 1.0f, 1.0f}; 
+	float diffuse[4] = {1.0f, 1.0f, 1.0f, 1.0f}; 
+	float specular[4] = {0.5f, 0.5f, 0.5f, 1.0f}; 
+	float shine = 5.0f; 
+	glMaterialfv(GL_FRONT, GL_AMBIENT, ambient); 
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse); 
+	glMaterialfv(GL_FRONT, GL_SPECULAR, specular); 
+	glMaterialf(GL_FRONT, GL_SHININESS, shine); 
+	
 	//CGEventSourceSetLocalEventsSuppressionInterval(,0.0);
 	CGSetLocalEventsSuppressionInterval(0.0);
 	// Reset the pointer to the center of the screen

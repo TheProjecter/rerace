@@ -13,8 +13,11 @@
 #include <Math.h>
 #include "VectorMath.h"
 #include <iostream>
+#include "DrawingObjects.h"
 
 using namespace std;
+
+
 
 GLfloat* Racer::location()
 {
@@ -47,6 +50,8 @@ Racer::Racer()
 	_up[0] = 0;
 	_up[1] = 1;
 	_up[2] = 0;
+	
+	loadRacer();
 }
 
 Racer::Racer(GLfloat* startPostion)
@@ -67,6 +72,8 @@ Racer::Racer(GLfloat* startPostion)
 	_up[0] = 0;
 	_up[1] = 1;
 	_up[2] = 0;
+	
+	loadRacer();
 }
 
 void Racer::move()
@@ -115,28 +122,29 @@ void Racer::turn(GLfloat y)
 void Racer::draw()
 {
 	move();
-	glPushMatrix();
 	
+	glPushMatrix();
 	glTranslatef(_position[0], _position[1], _position[2]);
 	
-	glColor3f(1.0, 0, 0);
+	/*glColor3f(1.0, 0, 0);
 	glBegin(GL_LINE_STRIP);
-	/*glVertex3f(0,0,0);
-	 glVertex3f(10,0,0);
-	 glVertex3f(0,0,0);
-	 glVertex3f(0,10,0);*/
+
 	glVertex3f(0, 0, 0);
 	glVertex3f(-_heading[0],_heading[1],-_heading[2]);
 	glEnd();
+	*/
 	
 	if(_heading[2]<0)
 		glRotatef(180+atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
 	else
 		glRotatef(atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
+	glRotatef(180, 0, 1, 0);
 	
-	drawCube(.1);
 	
-	glTranslatef(-_position[0], -_position[1], -_position[2]);
+	drawRacer(this);
+	
+	//glDisable(GL_LIGHTING);
+	//glTranslatef(-_position[0], -_position[1], -_position[2]);
 	
 	glPopMatrix();
 	

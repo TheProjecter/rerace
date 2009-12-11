@@ -8,6 +8,20 @@
  */
 
 #include "Primitives.h"
+#include "glm.h"
+
+void drawmodel(string model)
+{
+	GLMmodel* pmodel;
+	pmodel = glmReadOBJ(model.c_str());
+	if(!pmodel) return;
+	glmUnitize(pmodel);
+	glmFacetNormals(pmodel);
+	glmVertexNormals(pmodel, 90.0);
+    glmScale(pmodel, .1);
+	glmDraw(pmodel, GLM_SMOOTH | GLM_MATERIAL);
+}
+
 
 void drawRect(GLfloat *va, GLfloat *vb, GLfloat *vc, GLfloat *vd)
 {
