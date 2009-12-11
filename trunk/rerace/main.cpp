@@ -151,7 +151,7 @@ int main (int argc, char** argv) {
 	// Full Screen
 	glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH );
     // 1440x900, 16bit pixel depth, 60Hz refresh rate
-    glutGameModeString( "1440x900:16@60" );
+    glutGameModeString( "1440x900:32@60" );
     // start fullscreen game mode
     glutEnterGameMode();
 	
