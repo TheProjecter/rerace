@@ -223,7 +223,7 @@ glmWriteOBJ(GLMmodel* model, char* filename, GLuint mode);
  *            GLM_FLAT and GLM_SMOOTH should not both be specified.
  */
 GLvoid
-glmDraw(GLMmodel* model, GLuint mode);
+glmDraw(GLMmodel* model, GLuint mode, GLuint texture);
 
 /* glmList: Generates and returns a display list for the model using
  * the mode specified.
@@ -237,7 +237,7 @@ glmDraw(GLMmodel* model, GLuint mode);
  *            GLM_FLAT and GLM_SMOOTH should not both be specified.  
  */
 GLuint
-glmList(GLMmodel* model, GLuint mode);
+glmList(GLMmodel* model, GLuint mode, GLuint texture);
 
 /* glmWeld: eliminate (weld) vectors that are within an epsilon of
  * each other.

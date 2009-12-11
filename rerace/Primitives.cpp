@@ -19,7 +19,7 @@ void drawmodel(string model)
 	glmFacetNormals(pmodel);
 	glmVertexNormals(pmodel, 90.0);
     glmScale(pmodel, .1);
-	glmDraw(pmodel, GLM_SMOOTH | GLM_MATERIAL);
+	glmDraw(pmodel, GLM_SMOOTH | GLM_MATERIAL, NULL);
 }
 
 

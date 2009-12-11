@@ -1578,7 +1578,7 @@ glmWriteOBJ(GLMmodel* model, char* filename, GLuint mode)
  *             GLM_FLAT and GLM_SMOOTH should not both be specified.  
  */
 GLvoid
-glmDraw(GLMmodel* model, GLuint mode)
+glmDraw(GLMmodel* model, GLuint mode, GLuint texture)
 {
     static GLuint i;
     static GLMgroup* group;
@@ -1648,6 +1648,9 @@ glmDraw(GLMmodel* model, GLuint mode)
             glColor3fv(material->diffuse);
         }
         
+		if(mode & GLM_TEXTURE){
+			glBindTexture(GL_TEXTURE_2D, texture);
+		}
         glBegin(GL_TRIANGLES);
         for (i = 0; i < group->numtriangles; i++) {
             triangle = &T(group->triangles[i]);
@@ -1695,13 +1698,13 @@ glmDraw(GLMmodel* model, GLuint mode)
  * GLM_FLAT and GLM_SMOOTH should not both be specified.  
  */
 GLuint
-glmList(GLMmodel* model, GLuint mode)
+glmList(GLMmodel* model, GLuint mode, GLuint texture)
 {
     GLuint list;
     
     list = glGenLists(1);
     glNewList(list, GL_COMPILE);
-    glmDraw(model, mode);
+    glmDraw(model, mode, texture);
     glEndList();
     
     return list;
