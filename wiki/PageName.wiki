@@ -1,0 +1,21 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+<h1>Game Concept</h1>
+Rerace is a racing game with a twist. It combines a 2-dimensional racing game and a 3-dimensional flying and fighting game. Gameplay happens in two different stages. The game begins with you racing a car along a track against other opponents. At the end of the race you are transported back in time to the beginning of the race. However now you are controlling a flying fighter ship called a “Guardian”. The goal of this stage is to sabotage the opponent racers from the past in order to ensure that your past self wins the race. You are also responsible for defending your past self from the other Guardians who have traveled back in time. If at any point your racer is obstructed, a warning will come up and you will be required to switch back to controlling your racer  to avoid the obstacles and return back to your past path. Once leaving your old path you will be required to return before you can switch back to the fighter. The first past player to cross the finish line wins the game.
+<h1>Development</h1>
+The game is being developed in C++ using openGL for the interface. GLUT is also being used for creating the window. All game mechanics and drawing is being developed from scratch except for a framework for loading PNG images.
+<h1>Progress</h1>
+The basic architecture of the game has been developed including rudimentary physics and environment drawing. There is no gameplay at the moment but the user can drive the racer around in two dimensions and also switch to the Guardian to fly around in three dimensions. The ships are controlled by accelerating in the forward or backward direction and then friction is applied over time to slow the movement.
+<h1>Next</h1>
+The next steps are to draw a race track and to implement the physics for collisions with other players and obstacles. Once that is complete other racers need to be implement with an artificial intelligence.
+
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
