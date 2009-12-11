@@ -27,6 +27,10 @@ GameController::GameController(ViewController* newViewController)
 
 void GameController::mainLoop(int cursorX, int cursorY)
 {	
+	_viewController->raceTime+=kGameSpeed;
+	_viewController->position=1;
+	_viewController->lap=1;
+	
 	_players[0]->accelerate(acceleration);
 	_players[0]->turn(0, turningRadius, false);
 	

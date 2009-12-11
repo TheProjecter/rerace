@@ -76,6 +76,9 @@ int main (int argc, char** argv) {
 	
 	// Properties
 	glEnable(GL_DEPTH_TEST);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);	
+	glEnable(GL_BLEND);
+	glEnable(GL_TEXTURE_2D);
 	glutSetCursor(GLUT_CURSOR_NONE);
 	glutSetKeyRepeat(GLUT_KEY_REPEAT_OFF);
 	

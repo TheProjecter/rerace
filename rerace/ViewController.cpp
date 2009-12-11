@@ -22,6 +22,12 @@ ViewController::ViewController()
 	}
 	
 	_camera = new Camera();
+	_infoOverlay = new InformationOverlay();
+}
+ViewController::~ViewController()
+{
+	delete _camera;
+	delete _infoOverlay;
 }
 
 void ViewController::draw()
@@ -32,10 +38,18 @@ void ViewController::draw()
 		drawCube(.25);
 		glTranslatef(-levelCubes[i][0], -levelCubes[i][1], -levelCubes[i][2]);
 	}
+	
 	// Draw Players
 	for(int i=0; i<kNumOfPlayers; i++)
 		_players[i]->draw();
 	
+	// Reset View and Draw Overlay (in 2D)
+	/*glMatrixMode(GL_PROJECTION);
+	glDisable(GL_DEPTH_TEST);
+	glLoadIdentity();
+	_infoOverlay->draw(raceTime, position, lap);
+	glEnable(GL_DEPTH_TEST);
+	glMatrixMode(GL_MODELVIEW);*/
 }
 void ViewController::resetCamera()
 {

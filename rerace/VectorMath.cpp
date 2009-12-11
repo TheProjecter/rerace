@@ -19,14 +19,14 @@ void turnVector(float* v, float x, float y)
 	v[0] = newX;
 	v[2] = newZ;
 	
-	/*float newY = cos(x*M_PI/180)*v[1] - sin(x*M_PI/180)*v[2];
+	float newY = cos(x*M_PI/180)*v[1] - sin(x*M_PI/180)*v[2];
 		  newZ = sin(x*M_PI/180)*v[1] + cos(x*M_PI/180)*v[2];
 	
 	if(newY < 1)
 	{
 		v[1] = newY;
 		v[2] = newZ;
-	}*/
+	}
 }
 void rotateVectorAroundVector(float* v, float* rv, float angle)
 {
@@ -51,10 +51,12 @@ void rotateVectorAroundVector(float* v, float* rv, float angle)
 	
 	// z position of the new rotated point
 	
-	
 	vNewView[2]   = ((1 - cosTheta) * rv[0] * rv[2] - rv[1] * sinTheta)	* v[0];
 	vNewView[2]  += ((1 - cosTheta) * rv[1] * rv[2] + rv[0] * sinTheta)	* v[1];
-	vNewView[2]  += (cosTheta + (1 - cosTheta) * rv[2] * rv[2])		* v[2];
+	vNewView[2]  += (cosTheta + (1 - cosTheta) * rv[2] * rv[2]) * v[2];
+	
+	// Make vector of length one in case of rouding problems
+	normalize(vNewView);
 	
 	v[0]=vNewView[0];
 	v[1]=vNewView[1];
