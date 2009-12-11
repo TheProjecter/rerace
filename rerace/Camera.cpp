@@ -30,7 +30,7 @@ void Camera::reset()
 	glMatrixMode(GL_PROJECTION);
 	
 	glLoadIdentity();
-	gluPerspective(90.0f,(GLfloat)width/(GLfloat)height,0.1f,100.0f);
+	gluPerspective(90.0f,(GLfloat)width/(GLfloat)height,0.1f,1000.0f);
 	
 	glMatrixMode(GL_MODELVIEW);
 	
@@ -64,7 +64,7 @@ void Camera::lookInDirection(GLfloat* forward, GLfloat* up)
 	glMatrixMode(GL_PROJECTION);
 	
 	glLoadIdentity();
-	gluPerspective(90.0f,(GLfloat)glutGet( GLUT_WINDOW_WIDTH )/(GLfloat)glutGet( GLUT_WINDOW_HEIGHT ),0.1f,100.0f);
+	gluPerspective(90.0f,(GLfloat)glutGet( GLUT_WINDOW_WIDTH )/(GLfloat)glutGet( GLUT_WINDOW_HEIGHT ),0.1f,1000.0f);
 	
 	glTranslatef(0, -kCameraDistanceAbovePlayer, -kCameraDistanceFromPlayer);
 	

@@ -30,6 +30,9 @@
 		530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 530A68AE10911A8800C87CD4 /* Racer.cpp */; };
 		537FA28D10D1D40300FCDF26 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA28B10D1D40300FCDF26 /* glm.cpp */; };
 		537FA2D410D1D58500FCDF26 /* DrawingObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA2D310D1D58500FCDF26 /* DrawingObjects.cpp */; };
+		53A4C31510D22CE600F71311 /* back.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 53A4C31410D22CD100F71311 /* back.raw */; };
+		53A4C31C10D22CFE00F71311 /* Stone_Forest_1.mtl in Copy Data Files */ = {isa = PBXBuildFile; fileRef = 53A4C31A10D22CF800F71311 /* Stone_Forest_1.mtl */; };
+		53A4C31D10D22CFE00F71311 /* Stone_Forest_1.obj in Copy Data Files */ = {isa = PBXBuildFile; fileRef = 53A4C31B10D22CF800F71311 /* Stone_Forest_1.obj */; };
 		8DD76F650486A84900D96B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
 /* End PBXBuildFile section */
 
@@ -40,6 +43,8 @@
 			dstPath = data;
 			dstSubfolderSpec = 6;
 			files = (
+				53A4C31C10D22CFE00F71311 /* Stone_Forest_1.mtl in Copy Data Files */,
+				53A4C31D10D22CFE00F71311 /* Stone_Forest_1.obj in Copy Data Files */,
 				49E897A810D22BE90010A65F /* f-16.mtl in Copy Data Files */,
 				49E897A910D22BE90010A65F /* f-16.obj in Copy Data Files */,
 				49E897AA10D22BE90010A65F /* porsche.mtl in Copy Data Files */,
@@ -55,6 +60,7 @@
 			dstSubfolderSpec = 6;
 			files = (
 				4962EAB410B8B1B700528676 /* numbers.png in Copy Other Files */,
+				53A4C31510D22CE600F71311 /* back.raw in Copy Other Files */,
 				49CB5E73109A4F630038D166 /* level1.txt in Copy Other Files */,
 			);
 			name = "Copy Other Files";
@@ -102,6 +108,9 @@
 		537FA33E10D1DA0B00FCDF26 /* f-16.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "f-16.obj"; sourceTree = "<group>"; };
 		537FA33F10D1DA0B00FCDF26 /* porsche.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = porsche.mtl; sourceTree = "<group>"; };
 		537FA34010D1DA0B00FCDF26 /* porsche.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = porsche.obj; sourceTree = "<group>"; };
+		53A4C31410D22CD100F71311 /* back.raw */ = {isa = PBXFileReference; lastKnownFileType = file; path = back.raw; sourceTree = "<group>"; };
+		53A4C31A10D22CF800F71311 /* Stone_Forest_1.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Stone_Forest_1.mtl; sourceTree = "<group>"; };
+		53A4C31B10D22CF800F71311 /* Stone_Forest_1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Stone_Forest_1.obj; sourceTree = "<group>"; };
 		8DD76F6C0486A84900D96B5E /* rerace */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = rerace; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6859E8B029090EE04C91782 /* rerace.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = rerace.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -224,6 +233,7 @@
 		49C99C9110B89880002B61CB /* images */ = {
 			isa = PBXGroup;
 			children = (
+				53A4C31410D22CD100F71311 /* back.raw */,
 				49C99C9610B8988B002B61CB /* numbers.png */,
 				49C99D4D10B89E4E002B61CB /* numbers.tga */,
 			);
@@ -242,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				537FA33D10D1DA0B00FCDF26 /* f-16.mtl */,
+				53A4C31A10D22CF800F71311 /* Stone_Forest_1.mtl */,
+				53A4C31B10D22CF800F71311 /* Stone_Forest_1.obj */,
 				537FA33E10D1DA0B00FCDF26 /* f-16.obj */,
 				537FA33F10D1DA0B00FCDF26 /* porsche.mtl */,
 				537FA34010D1DA0B00FCDF26 /* porsche.obj */,
