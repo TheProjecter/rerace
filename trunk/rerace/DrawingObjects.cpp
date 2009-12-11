@@ -47,44 +47,27 @@ void loadGuardian()
 
 void drawRacer(void* racer)
 {
+	GLfloat spot_direction[] = {0,0,1};
+	GLfloat light1_position[] = { 0.0, 0.0, 0.2, 1.0 };
 	
+	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 18.0);
+	glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spot_direction);
+	glLightf(GL_LIGHT1, GL_SPOT_EXPONENT, 2.0);
+	glLightfv(GL_LIGHT1, GL_POSITION, light1_position);
 
-	GLfloat light_position[] = {0, 0, 0.2, 1.0};
-	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
-	
 
-		
-	//glEnable(GL_LIGHTING);
-	/*glEnable(GL_LIGHT0);
-	glMatrixMode(GL_PROJECTION);
-	
-	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat mat_shininess[] = { 50.0 };
-	float direction[3] = {0,0,1};
-	//GLfloat light_position[] = { 0.0, 0.0, 0.0 };
-	glShadeModel (GL_SMOOTH);
-	
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-	glLightfv(GL_LIGHT0, GL_POSITION, ((Racer*)racer)->location());
-	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 180.0f);
-	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 0.0f);
-	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, ((Racer*)racer)->heading()); 
-	
-	
-	glEnable(GL_LIGHT0);
-	glEnable(GL_DEPTH_TEST);
-	
-	glMatrixMode(GL_MODELVIEW);
-	 */
 	glCallList(_racerList);
 }
 void drawGuardian(void* guardian)
 {
 
-	GLfloat light_position[] = {0, 0, 0.2, 1.0};
-	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
-
+	GLfloat spot_direction[] = {0,0,1};
+	GLfloat light1_position[] = { 0.0, 0.0, 0.2, 1.0 };
+	
+	glLightf(GL_LIGHT0, GL_SPOT_CUTOFF, 18.0);
+	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, spot_direction);
+	glLightf(GL_LIGHT0, GL_SPOT_EXPONENT, 2.0);
+	glLightfv(GL_LIGHT0, GL_POSITION, light1_position);
 	
 	glCallList(_guardianList);
 }
