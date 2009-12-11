@@ -16,61 +16,6 @@ GLuint rocklist;
 GLuint textureBack;
 GLuint skybox[6];
 
-//Function to draw a cube, with 6 different textures on each edge
-static void
-drawTextureBox(GLfloat size, GLenum type, GLuint textures[6])
-{
-	// Create Faces of Cube
-	static GLfloat n[6][3] =
-	{
-		{-1.0, 0.0, 0.0},
-		{0.0, 1.0, 0.0},
-		{1.0, 0.0, 0.0},
-		{0.0, -1.0, 0.0},
-		{0.0, 0.0, 1.0},
-		{0.0, 0.0, -1.0}
-	};
-	static GLint faces[6][4] =
-	{
-		{0, 1, 2, 3},
-		{3, 2, 6, 7},
-		{7, 6, 5, 4},
-		{4, 5, 1, 0},
-		{5, 6, 2, 1},
-		{7, 4, 0, 3}
-	};
-	GLfloat v[8][3];
-	GLint i;
-	
-	v[0][0] = v[1][0] = v[2][0] = v[3][0] = -size / 2;
-	v[4][0] = v[5][0] = v[6][0] = v[7][0] = size / 2;
-	v[0][1] = v[1][1] = v[4][1] = v[5][1] = -size / 2;
-	v[2][1] = v[3][1] = v[6][1] = v[7][1] = size / 2;
-	v[0][2] = v[3][2] = v[4][2] = v[7][2] = -size / 2;
-	v[1][2] = v[2][2] = v[5][2] = v[6][2] = size / 2;
-	
-	// For each size, create corresponding square, and texture it
-	for (i = 5; i >= 0; i--) {
-		glBindTexture(GL_TEXTURE_2D, textures[i]);
-		glBegin(type);
-		glNormal3fv(&n[i][0]);
-		glTexCoord2f(0,0); glVertex3fv(&v[faces[i][0]][0]);
-		glTexCoord2f(0,1); glVertex3fv(&v[faces[i][1]][0]);
-		glTexCoord2f(1,1); glVertex3fv(&v[faces[i][2]][0]);
-		glTexCoord2f(1,0); glVertex3fv(&v[faces[i][3]][0]);
-		glEnd();
-	} 
-	glBindTexture(GL_TEXTURE_2D, NULL);
-}
-
-void 
-
-// Function to call drawTextureBox function for simplicity
-SolidTextureCube(GLdouble size, GLuint textures[6])
-{
-	drawTextureBox(size, GL_QUADS, textures);
-}
-
 // Default Viewcontroller constructor, creates asteroid field
 // and Space Nebula Skybox
 ViewController::ViewController()
@@ -137,7 +82,7 @@ void ViewController::resetCamera()
 	_camera->reset();
 }
 
-// Get current Player heading for camera
+// Get current Player heading for camera and look towards that
 void ViewController::followPlayer(int player)
 {
 	GLfloat* playerPosition = _players[player]->currentVehicleLocation();
