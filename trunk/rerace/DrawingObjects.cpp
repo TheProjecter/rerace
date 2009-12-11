@@ -48,19 +48,11 @@ void loadGuardian()
 void drawRacer(void* racer)
 {
 	
-	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat mat_shininess[] = { 50.0 };
-	GLfloat light_position[] = {0, 0, -0.2};
-	glClearColor (0.0, 0.0, 0.0, 0.0);
-	glShadeModel (GL_SMOOTH);
-	
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+	GLfloat light_position[] = {0, 0, 0.2, 1.0};
 	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 	
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT0);
-	glEnable(GL_DEPTH_TEST);
+
 		
 	//glEnable(GL_LIGHTING);
 	/*glEnable(GL_LIGHT0);
@@ -89,5 +81,10 @@ void drawRacer(void* racer)
 }
 void drawGuardian(void* guardian)
 {
+
+	GLfloat light_position[] = {0, 0, 0.2, 1.0};
+	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+	
 	glCallList(_guardianList);
 }
