@@ -16,6 +16,7 @@
 GLuint _racerList;
 GLuint _guardianList;
 GLuint _rockList;
+GLuint textureRock;
 
 using namespace std;
 
@@ -87,7 +88,8 @@ void loadGuardian()
 }
 
 void loadRock(){
-	string model_name = "data/rock.obj";
+	string model_name = "data/Stone_Forest_1.obj";
+	GLuint textureRock = LoadTextureRAW("S1Diffus.raw", 2048, 2048, true, false);
 	
 	GLMmodel* pmodel;
 	pmodel = glmReadOBJ(model_name.c_str());
@@ -96,7 +98,9 @@ void loadRock(){
 	glmFacetNormals(pmodel);
 	glmVertexNormals(pmodel, 90.0);
     glmScale(pmodel, .8);
-	_rockList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL);
+	glBindTexture(GL_TEXTURE_2D, textureRock);
+	_rockList = glmList(pmodel, GLM_SMOOTH | GLM_TEXTURE);
+	glBindTexture(GL_TEXTURE_2D, NULL);
 }
 
 GLuint loadField(){
@@ -105,16 +109,18 @@ GLuint loadField(){
 	GLfloat x,y,z;
 	list = glGenLists(1);
 	glNewList(list, GL_COMPILE);
-	for (int i=0; i<10; i++) {
-		x = (GLfloat)((rand()%6000)-3000)/100;
-		y = (GLfloat)((rand()%6000)-3000)/100;
-		z = (GLfloat)((rand()%6000)-3000)/100;
+	for (int i=0; i<200; i++) {
+		x = (GLfloat)((rand()%6000)-3000)/100.0f;
+		y = (GLfloat)((rand()%6000)-3000)/100.0f;
+		z = (GLfloat)((rand()%6000)-3000)/100.0f;
 		
 		glPushMatrix();
 		glTranslatef(x, y, z);
 		glRotated(rand()%359, 1, 0, 0);
 		glRotated(rand()%359, 0, 1, 0);
 		glRotated(rand()%359, 0, 0, 1);
+		//float scale = rand()%100+50)/100.0f;
+		glScaled((rand()%100+50)/100.0f, (rand()%100+50)/100.0f, (rand()%100+50)/100.0f);
 		drawRock();
 		glTranslatef(-x, -y, -z);
 		glPopMatrix();
@@ -122,9 +128,13 @@ GLuint loadField(){
 	glEndList();
 	return list;
 }
-
 void drawRock(){
+	
+
+	glBindTexture(GL_TEXTURE_2D, textureRock);
 	glCallList(_rockList);
+	glBindTexture(GL_TEXTURE_2D, NULL);
+
 }
 
 void drawRacer(void* racer)

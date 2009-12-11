@@ -79,7 +79,10 @@ ViewController::~ViewController()
 }
 
 void ViewController::renderSkybox(){
-	GLfloat mat_ambient[] = { 0.5, 0.5, 0.5, 1.0 };
+	float* cords = _players[0]->currentVehicleLocation();
+	glPushMatrix();
+	glTranslatef(cords[0], cords[1], cords[2]);
+	GLfloat mat_ambient[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_shininess[] = { 0.0 };
 	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
@@ -89,6 +92,7 @@ void ViewController::renderSkybox(){
 	glBindTexture(GL_TEXTURE_2D, textureBack);
 	glutSolidCube2(250);
 	glBindTexture(GL_TEXTURE_2D, NULL);
+	glPopMatrix();
 	
 }
 
@@ -102,14 +106,6 @@ void ViewController::draw()
 	
 	// Write General Drawing Code (probably level and background)
 	glCallList(rocklist);
-
-	// Reset View and Draw Overlay (in 2D)
-	/*glMatrixMode(GL_PROJECTION);
-	glDisable(GL_DEPTH_TEST);
-	glLoadIdentity();
-	_infoOverlay->draw(raceTime, position, lap);
-	glEnable(GL_DEPTH_TEST);
-	glMatrixMode(GL_MODELVIEW);*/
 }
 void ViewController::resetCamera()
 {
