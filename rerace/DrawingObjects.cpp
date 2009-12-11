@@ -14,7 +14,8 @@
 #include "Racer.h"
 #include "Guardian.h"
 
-GLuint _displayList;
+GLuint _racerList;
+GLuint _guardianList;
 
 void loadRacer()
 {
@@ -27,11 +28,20 @@ void loadRacer()
 	glmFacetNormals(pmodel);
 	glmVertexNormals(pmodel, 90.0);
     glmScale(pmodel, .1);
-	_displayList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL);
+	_racerList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL);
 }
 void loadGuardian()
 {
-	glCallList(_displayList);
+	string model_name = "data/f-16.obj";
+	
+	GLMmodel* pmodel;
+	pmodel = glmReadOBJ(model_name.c_str());
+	if(!pmodel) return;
+	glmUnitize(pmodel);
+	glmFacetNormals(pmodel);
+	glmVertexNormals(pmodel, 90.0);
+    glmScale(pmodel, .1);
+	_guardianList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL);
 }
 
 
@@ -56,18 +66,9 @@ void drawRacer(void* racer)
 	//glutSolidCube(.1);
 	//drawCube(.1);
 	
-	glCallList(_displayList);
+	glCallList(_racerList);
 }
 void drawGuardian(void* guardian)
 {
-	string model_name = "data/f-16.obj";
-	
-	GLMmodel* pmodel;
-	pmodel = glmReadOBJ(model_name.c_str());
-	if(!pmodel) return;
-	glmUnitize(pmodel);
-	glmFacetNormals(pmodel);
-	glmVertexNormals(pmodel, 90.0);
-    glmScale(pmodel, .1);
-	_displayList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL);
+	glCallList(_guardianList);
 }
