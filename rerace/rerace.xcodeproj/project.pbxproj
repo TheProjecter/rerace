@@ -28,6 +28,7 @@
 		49E897AB10D22BE90010A65F /* porsche.obj in Copy Data Files */ = {isa = PBXBuildFile; fileRef = 537FA34010D1DA0B00FCDF26 /* porsche.obj */; };
 		49FA57231091F8EA001CE911 /* Primitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49FA57221091F8EA001CE911 /* Primitives.cpp */; };
 		530A68AF10911A8800C87CD4 /* Racer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 530A68AE10911A8800C87CD4 /* Racer.cpp */; };
+		531C8F1E10D232AC00E8ADDD /* S1Diffus.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 531C8F1610D2329100E8ADDD /* S1Diffus.raw */; };
 		537FA28D10D1D40300FCDF26 /* glm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA28B10D1D40300FCDF26 /* glm.cpp */; };
 		537FA2D410D1D58500FCDF26 /* DrawingObjects.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 537FA2D310D1D58500FCDF26 /* DrawingObjects.cpp */; };
 		53A4C31510D22CE600F71311 /* back.raw in Copy Other Files */ = {isa = PBXBuildFile; fileRef = 53A4C31410D22CD100F71311 /* back.raw */; };
@@ -60,6 +61,7 @@
 			dstSubfolderSpec = 6;
 			files = (
 				4962EAB410B8B1B700528676 /* numbers.png in Copy Other Files */,
+				531C8F1E10D232AC00E8ADDD /* S1Diffus.raw in Copy Other Files */,
 				53A4C31510D22CE600F71311 /* back.raw in Copy Other Files */,
 				49CB5E73109A4F630038D166 /* level1.txt in Copy Other Files */,
 			);
@@ -100,6 +102,7 @@
 		49FA57221091F8EA001CE911 /* Primitives.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Primitives.cpp; sourceTree = "<group>"; };
 		530A68AD10911A8800C87CD4 /* Racer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Racer.h; sourceTree = "<group>"; };
 		530A68AE10911A8800C87CD4 /* Racer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Racer.cpp; sourceTree = "<group>"; };
+		531C8F1610D2329100E8ADDD /* S1Diffus.raw */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = S1Diffus.raw; sourceTree = "<group>"; };
 		537FA28B10D1D40300FCDF26 /* glm.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = glm.cpp; sourceTree = "<group>"; };
 		537FA28C10D1D40300FCDF26 /* glm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
 		537FA2D210D1D58500FCDF26 /* DrawingObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingObjects.h; sourceTree = "<group>"; };
@@ -235,6 +238,7 @@
 			children = (
 				53A4C31410D22CD100F71311 /* back.raw */,
 				49C99C9610B8988B002B61CB /* numbers.png */,
+				531C8F1610D2329100E8ADDD /* S1Diffus.raw */,
 				49C99D4D10B89E4E002B61CB /* numbers.tga */,
 			);
 			name = images;
