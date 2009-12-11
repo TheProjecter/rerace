@@ -13,6 +13,7 @@
 #include "PlayerController.h"
 #include "InformationOverlay.h"
 #include "Camera.h"
+#include "DrawingObjects.h"
 
 class ViewController
 {
@@ -24,6 +25,7 @@ public:
 	// Used to assign players from game controller
 	void setPlayer(int index, PlayerController* player);
 	void mouseMove(float x, float y);
+	void renderSkybox();
 	//void moveCameraTo(float x, float y, float z);
 	//void rotateCamera(float x, float y);
 	void followPlayer(int player);
