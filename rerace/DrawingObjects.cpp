@@ -109,7 +109,7 @@ GLuint loadField(){
 	GLfloat x,y,z;
 	list = glGenLists(1);
 	glNewList(list, GL_COMPILE);
-	for (int i=0; i<200; i++) {
+	for (int i=0; i<150; i++) {
 		x = (GLfloat)((rand()%6000)-3000)/100.0f;
 		y = (GLfloat)((rand()%6000)-3000)/100.0f;
 		z = (GLfloat)((rand()%6000)-3000)/100.0f;

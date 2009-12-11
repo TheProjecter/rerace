@@ -14,9 +14,10 @@
 #include <iostream>
 GLuint rocklist;
 GLuint textureBack;
+GLuint skybox[6];
 
 static void
-drawBox2(GLfloat size, GLenum type)
+drawBox2(GLfloat size, GLenum type, GLuint textures[6])
 {
 	static GLfloat n[6][3] =
 	{
@@ -47,6 +48,7 @@ drawBox2(GLfloat size, GLenum type)
 	v[1][2] = v[2][2] = v[5][2] = v[6][2] = size / 2;
 	
 	for (i = 5; i >= 0; i--) {
+		glBindTexture(GL_TEXTURE_2D, textures[i]);
 		glBegin(type);
 		glNormal3fv(&n[i][0]);
 		glTexCoord2f(0,0); glVertex3fv(&v[faces[i][0]][0]);
@@ -55,12 +57,13 @@ drawBox2(GLfloat size, GLenum type)
 		glTexCoord2f(1,0); glVertex3fv(&v[faces[i][3]][0]);
 		glEnd();
 	} 
+	glBindTexture(GL_TEXTURE_2D, NULL);
 }
 
 void 
-glutSolidCube2(GLdouble size)
+glutSolidCube2(GLdouble size, GLuint textures[6])
 {
-	drawBox2(size, GL_QUADS);
+	drawBox2(size, GL_QUADS, textures);
 }
 
 
@@ -68,7 +71,13 @@ ViewController::ViewController()
 {
 	
 	rocklist = loadField();
-	textureBack = LoadTextureRAW("back.raw",1024, 1024, true, false);
+	skybox[0] = LoadTextureRAW("S1.raw",1024/2, 1024/2, true, false);
+	skybox[1] = LoadTextureRAW("S2.raw",1024/2, 1024/2, true, false);
+	skybox[2] = LoadTextureRAW("S3.raw",1024/2, 1024/2, true, false);
+	skybox[3] = LoadTextureRAW("S4.raw",1024/2, 1024/2, true, false);
+	skybox[4] = LoadTextureRAW("S5.raw",1024/2, 1024/2, true, false);
+	skybox[5] = LoadTextureRAW("S6.raw",1024/2, 1024/2, true, false);
+	
 	_camera = new Camera();
 	_infoOverlay = new InformationOverlay();
 }
@@ -82,16 +91,10 @@ void ViewController::renderSkybox(){
 	float* cords = _players[0]->currentVehicleLocation();
 	glPushMatrix();
 	glTranslatef(cords[0], cords[1], cords[2]);
-	GLfloat mat_ambient[] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-	GLfloat mat_shininess[] = { 0.0 };
-	glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-	glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-	glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-	
-	glBindTexture(GL_TEXTURE_2D, textureBack);
-	glutSolidCube2(250);
-	glBindTexture(GL_TEXTURE_2D, NULL);
+	//glBindTexture(GL_TEXTURE_2D, textureBack);
+	glDisable(GL_LIGHTING);
+	glutSolidCube2(1154, skybox);
+	glEnable(GL_LIGHTING);
 	glPopMatrix();
 	
 }
