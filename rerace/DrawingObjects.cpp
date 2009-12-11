@@ -46,8 +46,8 @@ GLuint LoadTextureRAW( const char * filename, int width, int height, int wrap, b
 	gluBuild2DMipmaps( GL_TEXTURE_2D, transparent ? GL_RGBA : 3, width, height, transparent ? GL_RGBA : GL_RGB, GL_UNSIGNED_BYTE, data );
 	free( data );
 	
-	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S , GL_CLAMP);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T , GL_CLAMP);
 
