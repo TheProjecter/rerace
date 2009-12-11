@@ -90,10 +90,10 @@ ViewController::~ViewController()
 void ViewController::renderSkybox(){
 	float* cords = _players[0]->currentVehicleLocation();
 	glPushMatrix();
-	glTranslatef(cords[0], cords[1], cords[2]);
+	//glTranslatef(cords[0], cords[1], cords[2]);
 	//glBindTexture(GL_TEXTURE_2D, textureBack);
 	glDisable(GL_LIGHTING);
-	glutSolidCube2(1154, skybox);
+	glutSolidCube2(500, skybox);
 	glEnable(GL_LIGHTING);
 	glPopMatrix();
 	
