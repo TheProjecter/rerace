@@ -2,8 +2,8 @@
  *  DrawingObjects.h
  *  rerace
  *
- *  Created by Keith Thompson on 12/10/09.
- *  Copyright 2009 __MyCompanyName__. All rights reserved.
+ *  Created by Andrew Wagner and Keith Thompson on 12/10/09.
+ *  Copyright 2009 Digital Assertion. All rights reserved. 
  *
  */
 

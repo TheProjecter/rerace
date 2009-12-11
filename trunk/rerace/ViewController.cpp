@@ -2,7 +2,7 @@
  *  ViewController.cpp
  *  rerace
  *
- *  Created by Andrew Wagner on 10/22/09.
+ *  Created by Andrew Wagner and Keith Thompson on 10/22/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
  */
@@ -16,9 +16,11 @@ GLuint rocklist;
 GLuint textureBack;
 GLuint skybox[6];
 
+//Function to draw a cube, with 6 different textures on each edge
 static void
-drawBox2(GLfloat size, GLenum type, GLuint textures[6])
+drawTextureBox(GLfloat size, GLenum type, GLuint textures[6])
 {
+	// Create Faces of Cube
 	static GLfloat n[6][3] =
 	{
 		{-1.0, 0.0, 0.0},
@@ -47,6 +49,7 @@ drawBox2(GLfloat size, GLenum type, GLuint textures[6])
 	v[0][2] = v[3][2] = v[4][2] = v[7][2] = -size / 2;
 	v[1][2] = v[2][2] = v[5][2] = v[6][2] = size / 2;
 	
+	// For each size, create corresponding square, and texture it
 	for (i = 5; i >= 0; i--) {
 		glBindTexture(GL_TEXTURE_2D, textures[i]);
 		glBegin(type);
@@ -61,16 +64,20 @@ drawBox2(GLfloat size, GLenum type, GLuint textures[6])
 }
 
 void 
-glutSolidCube2(GLdouble size, GLuint textures[6])
+
+// Function to call drawTextureBox function for simplicity
+SolidTextureCube(GLdouble size, GLuint textures[6])
 {
-	drawBox2(size, GL_QUADS, textures);
+	drawTextureBox(size, GL_QUADS, textures);
 }
 
-
+// Default Viewcontroller constructor, creates asteroid field
+// and Space Nebula Skybox
 ViewController::ViewController()
 {
-	
+	//load the Display list for the Asteroid Field
 	rocklist = loadField();
+	//Load each image of the SkyBox
 	skybox[0] = LoadTextureRAW("S1.raw",1024/2, 1024/2, true, false);
 	skybox[1] = LoadTextureRAW("S2.raw",1024/2, 1024/2, true, false);
 	skybox[2] = LoadTextureRAW("S3.raw",1024/2, 1024/2, true, false);
@@ -81,33 +88,39 @@ ViewController::ViewController()
 	_camera = new Camera();
 	_infoOverlay = new InformationOverlay();
 }
+
+// Default Viewcontroller desctructer
 ViewController::~ViewController()
 {
 	delete _camera;
 	delete _infoOverlay;
 }
 
+// Displays the skybox, always centered around the current camera position
+// player can never reach skybox
 void ViewController::renderSkybox(){
 	float* cords = _players[0]->currentVehicleLocation();
 	glPushMatrix();
+	// translate skybox to current location
 	glTranslatef(cords[0], cords[1], cords[2]);
-	//glBindTexture(GL_TEXTURE_2D, textureBack);
+	// Enable ambient lighting, to always show skybox, but not make it too harsh
 	GLfloat mat_ambient[] = { 3.0, 3.0, 3.0, 3.0 };
 	GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat mat_shininess[] = { 50.0 };
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, mat_specular);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mat_shininess);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, mat_ambient);//glDisable(GL_LIGHTING);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, mat_ambient);	
 	
-	
-	glutSolidCube2(500, skybox);
-	//glEnable(GL_LIGHTING);
+	// Draw skybox
+	SolidTextureCube(500, skybox);
 	glPopMatrix();
 	
 }
 
+// Draw the skybox, player, and Level - currently asteroids
 void ViewController::draw()
 {
+	// Draw skybox
 	renderSkybox();
 	
 	// Draw Players
@@ -117,10 +130,14 @@ void ViewController::draw()
 	// Write General Drawing Code (probably level and background)
 	glCallList(rocklist);
 }
+
+// Reset the Camera
 void ViewController::resetCamera()
 {
 	_camera->reset();
 }
+
+// Get current Player heading for camera
 void ViewController::followPlayer(int player)
 {
 	GLfloat* playerPosition = _players[player]->currentVehicleLocation();

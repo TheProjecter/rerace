@@ -2,7 +2,7 @@
  *  Camera.h
  *  rerace
  *
- *  Created by Andrew Wagner on 10/24/09.
+ *  Created by Andrew Wagner and Keith Thompson on 10/24/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
  */

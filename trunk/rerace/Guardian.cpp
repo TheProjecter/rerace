@@ -2,7 +2,7 @@
  *  Guardian.cpp
  *  rerace
  *
- *  Created by Andrew Wagner on 10/22/09.
+ *  Created by Andrew Wagner and Keith Thompson on 10/22/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
  */
@@ -100,18 +100,14 @@ void Guardian::draw()
 {
 	move();
 	glPushMatrix();
-	
 	glLoadIdentity();
-	
 	glTranslatef(_position[0], _position[1], _position[2]);
-	
 	gluLookAt(0, 0, 0,
 			  _heading[0],_heading[1],-_heading[2],
 			  _up[0], _up[1], -_up[2]);
 	
 	glRotatef(180, 0, 1, 0);
 	drawGuardian(this);
-	
 	glPopMatrix();
 	
 	/* For debugging vectors:

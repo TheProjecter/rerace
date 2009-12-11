@@ -12,8 +12,7 @@ int width = 0;
 int height = 0;
 int lastPoint[2] = {-1, -1};
 
-// load an RGB .RAW file as a texture
-
+// Initialize All lighting for world
 void initLighting(void){
 
 	//Default ambient lighing for models
