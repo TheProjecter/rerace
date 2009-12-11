@@ -24,6 +24,22 @@ void initLighting(void){
 	
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
+	
+	
+	
+	GLfloat light1_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
+	GLfloat light1_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
+	GLfloat light1_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+	
+	glLightfv(GL_LIGHT1, GL_AMBIENT, light1_ambient);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, light1_diffuse);
+	glLightfv(GL_LIGHT1, GL_SPECULAR, light1_specular);
+	glLightf(GL_LIGHT1, GL_CONSTANT_ATTENUATION, 1.0);
+	glLightf(GL_LIGHT1, GL_LINEAR_ATTENUATION, 0.0);
+	glLightf(GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.0);
+	
+	glEnable(GL_LIGHT1);
+	
 }
 
 void display(void)
