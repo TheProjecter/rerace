@@ -53,9 +53,9 @@ void GameController::mouseMove(float x, float y)
 	float turnYRadius = y*kMouseSensitivity;
 	float turnXRadius = x*kMouseSensitivity;
 	
-	if(!canTurnVertical)
+	if(kFlyingDebuggingMode & !canTurnVertical)
 		turnXRadius = 0;
-	if(!canTurnHorizontal)
+	if(kFlyingDebuggingMode & !canTurnHorizontal)
 		turnYRadius = 0;
 	
 	_players[0]->turn(turnYRadius, turnXRadius, true);

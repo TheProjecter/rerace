@@ -2,6 +2,8 @@
  *  constants.h
  *  rerace
  *
+ *	Constants to easily change game settings
+ *
  *  Created by Andrew Wagner on 10/22/09.
  *  Copyright 2009 Digital Assertion. All rights reserved.
  *
@@ -22,6 +24,7 @@
 // Control Constants
 #define kMouseSensitivity 50.0f
 #define kMousePoleInterval 10
+#define kFlyingDebuggingMode false
 
 // Phsyics
 #define kRacerTurnRadius				3

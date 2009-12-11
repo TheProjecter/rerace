@@ -29,7 +29,7 @@ public:
 	void followPlayer(int player);
 	void resetCamera();
 	
-	GLfloat levelCubes[20][3];
+	GLfloat levelCubes[100][3];
 	
 	unsigned int raceTime;
 	int position;
