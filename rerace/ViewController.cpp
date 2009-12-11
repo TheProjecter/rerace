@@ -71,12 +71,12 @@ ViewController::ViewController()
 {
 	
 	rocklist = loadField();
-	skybox[0] = LoadTextureRAW("S1.raw",1024/2, 1024/2, true, false);
-	skybox[1] = LoadTextureRAW("S2.raw",1024/2, 1024/2, true, false);
-	skybox[2] = LoadTextureRAW("S3.raw",1024/2, 1024/2, true, false);
-	skybox[3] = LoadTextureRAW("S4.raw",1024/2, 1024/2, true, false);
-	skybox[4] = LoadTextureRAW("S5.raw",1024/2, 1024/2, true, false);
-	skybox[5] = LoadTextureRAW("S6.raw",1024/2, 1024/2, true, false);
+	skybox[0] = LoadTextureRAW("S1.raw",1024, 1024, true, false);
+	skybox[1] = LoadTextureRAW("S2.raw",1024, 1024, true, false);
+	skybox[2] = LoadTextureRAW("S3.raw",1024, 1024, true, false);
+	skybox[3] = LoadTextureRAW("S4.raw",1024, 1024, true, false);
+	skybox[4] = LoadTextureRAW("S5.raw",1024, 1024, true, false);
+	skybox[5] = LoadTextureRAW("S6.raw",1024, 1024, true, false);
 	
 	_camera = new Camera();
 	_infoOverlay = new InformationOverlay();
