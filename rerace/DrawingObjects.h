@@ -21,3 +21,6 @@ void drawRacer(void* racer);
 void drawGuardian(void* guardian);
 void drawRock();
 GLuint loadField();
+
+void SolidTextureCube(GLdouble size, GLuint textures[6]);
+static void drawTextureBox(GLfloat size, GLenum type, GLuint textures[6]);

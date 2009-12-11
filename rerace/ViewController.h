@@ -24,14 +24,18 @@ public:
 	ViewController();
 	~ViewController();
 	
+	// Draw the skybox, player, and Level - currently asteroids
 	void draw();
 	// Used to assign players from game controller
 	void setPlayer(int index, PlayerController* player);
+	
 	void mouseMove(float x, float y);
+	// Displays the skybox, always centered around the current camera position
+	// player can never reach skybox
 	void renderSkybox();
-	//void moveCameraTo(float x, float y, float z);
-	//void rotateCamera(float x, float y);
+	// Get current Player heading for camera and look towards that
 	void followPlayer(int player);
+	// Reset the Camera
 	void resetCamera();
 	
 	GLfloat levelCubes[100][3];
