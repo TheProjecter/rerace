@@ -19,7 +19,6 @@ void rotateVectorAroundVector(float* v, float* rv, float angle)
 	
 	// x position of the new rotated point
 	
-	
 	vNewView[0] = (cosTheta + (1 - cosTheta) * rv[0] * rv[0])		* v[0];
 	vNewView[0]	+= ((1 - cosTheta) * rv[0] * rv[1] - rv[2] * sinTheta)	* v[1];
 	vNewView[0]  += ((1 - cosTheta) * rv[0] * rv[2] + rv[1] * sinTheta)	* v[2];

@@ -125,7 +125,6 @@ void Racer::draw()
 		glRotatef(180+atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
 	else
 		glRotatef(atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
-	glRotatef(180, 0, 1, 0);
 	
 	
 	drawRacer(this);
