@@ -71,7 +71,7 @@ void loadRacer()
 	glmFacetNormals(pmodel);
 	glmVertexNormals(pmodel, 90.0);
     glmScale(pmodel, .1);
-	_racerList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL);
+	_racerList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL, NULL);
 }
 void loadGuardian()
 {
@@ -84,7 +84,7 @@ void loadGuardian()
 	glmFacetNormals(pmodel);
 	glmVertexNormals(pmodel, 90.0);
     glmScale(pmodel, .1);
-	_guardianList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL);
+	_guardianList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL, NULL);
 }
 
 void loadRock(){
@@ -99,7 +99,7 @@ void loadRock(){
 	glmVertexNormals(pmodel, 90.0);
     glmScale(pmodel, .8);
 	glBindTexture(GL_TEXTURE_2D, textureRock);
-	_rockList = glmList(pmodel, GLM_SMOOTH | GLM_TEXTURE);
+	_rockList = glmList(pmodel, GLM_SMOOTH | GLM_TEXTURE, textureRock);
 	glBindTexture(GL_TEXTURE_2D, NULL);
 }
 
