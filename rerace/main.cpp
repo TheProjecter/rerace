@@ -142,9 +142,18 @@ int main (int argc, char** argv) {
 	/* Window title is name of program (arg[0]) */
 	
 	glutInit(&argc, argv);
+	/* Windowed
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(kWindowWidth, kWindowHeight);
 	glutCreateWindow(argv[0]);
+	 */
+	
+	// Full Screen
+	glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH );
+    // 1440x900, 16bit pixel depth, 60Hz refresh rate
+    glutGameModeString( "1440x900:16@60" );
+    // start fullscreen game mode
+    glutEnterGameMode();
 	
 	// Callback Functions
 	glutDisplayFunc(display);
