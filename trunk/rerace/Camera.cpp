@@ -13,6 +13,8 @@
 #include <iostream>
 #include "constants.h"
 
+#include "DrawingObjects.h"
+
 using namespace std;
 
 Camera::Camera()
@@ -64,22 +66,6 @@ void Camera::lookInDirection(GLfloat* forward, GLfloat* up)
 	gluPerspective(90.0f,(GLfloat)glutGet( GLUT_WINDOW_WIDTH )/(GLfloat)glutGet( GLUT_WINDOW_HEIGHT ),0.1f,100.0f);
 	
 	glTranslatef(0, -kCameraDistanceAbovePlayer, -kCameraDistanceFromPlayer);
-	
-	/*GLfloat up[3], forward[3], right[3];
-	forward[0]=x;
-	forward[1]=y;
-	forward[2]=z;
-	
-	GLfloat theta = atanf(x / z);
-	right[0] = sinf(theta-M_PI/2);
-	right[1] = 0;
-	right[2] = cosf(theta-M_PI/2);
-	
-	cross(forward, right, up);*/
-	/*if(acosf(dotProduct(forward, 0, 1, 0)>M_PI))
-		yup = 1;
-	else
-		yup = -1;*/
 	
 	gluLookAt(position[0], position[1], position[2], position[0]-forward[0], position[1]-forward[1], position[2]-forward[2], up[0], up[1], up[2]);
 	
