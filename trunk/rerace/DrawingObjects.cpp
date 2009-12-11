@@ -65,7 +65,7 @@ void loadRacer()
 	glmUnitize(pmodel);
 	glmFacetNormals(pmodel);
 	glmVertexNormals(pmodel, 90.0);
-    glmScale(pmodel, .1);
+    glmScale(pmodel, .2);
 	_racerList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL, NULL);
 }
 void loadGuardian()
@@ -78,7 +78,7 @@ void loadGuardian()
 	glmUnitize(pmodel);
 	glmFacetNormals(pmodel);
 	glmVertexNormals(pmodel, 90.0);
-    glmScale(pmodel, .1);
+    glmScale(pmodel, .3);
 	_guardianList = glmList(pmodel, GLM_SMOOTH | GLM_MATERIAL, NULL);
 }
 

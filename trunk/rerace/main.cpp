@@ -60,7 +60,7 @@ void initLighting(void){
 	
 	
 	//Light2 - sky light
-	GLfloat light2_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
+	GLfloat light2_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
 	GLfloat light2_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light2_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light2_position[] = { 0.0, 0.0, 0.0, 1.0 };
@@ -76,7 +76,7 @@ void initLighting(void){
 	glEnable(GL_LIGHT2);
 
 	//Light3 - sky light
-	GLfloat light3_ambient[] = { 0.2, 0.2, 0.2, 1.0 };
+	GLfloat light3_ambient[] = { 0.0, 0.0, 0.0, 1.0 };
 	GLfloat light3_diffuse[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light3_specular[] = { 1.0, 1.0, 1.0, 1.0 };
 	GLfloat light3_position[] = { 0.0, 0.0, -20.0, 1.0 };
