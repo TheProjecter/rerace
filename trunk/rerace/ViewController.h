@@ -15,6 +15,9 @@
 #include "Camera.h"
 #include "DrawingObjects.h"
 
+void glutSolidCube2(GLdouble size, GLuint textures[6]);
+static void drawBox2(GLfloat size, GLenum type, GLuint textures[6]);
+
 class ViewController
 {
 public:
