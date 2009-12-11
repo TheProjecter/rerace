@@ -80,9 +80,6 @@ void Guardian::move()
 	_position[0] += _speed*_heading[0];
 	_position[1] -= _speed*_heading[1];
 	_position[2] += _speed*_heading[2];
-	/*_position[0] += _speed*sinf(_heading[1]*M_PI/180)*cosf(_heading[0]*M_PI/180);
-	_position[1] -= _speed*sinf(_heading[0]*M_PI/180);
-	_position[2] += _speed*cosf(_heading[1]*M_PI/180)*cosf(_heading[0]*M_PI/180);*/
 	
 	if(_speed>0)
 		_speed-=kRacerFriction;
@@ -95,68 +92,17 @@ void Guardian::draw()
 	move();
 	glPushMatrix();
 	
-	//glTranslatef(_position[0], _position[1], _position[2]);
-	//glRotatef(_heading[0], 1, 0, 0);
-	//glRotatef(_heading[1], 0, 1, 0);
-	//glRotatef(_headingY, 0, cosf((_headingX)*M_PI/180), sinf((_headingX)*M_PI/180));
-	
-	/*glColor3f(1.0, 0, 0);
-	glBegin(GL_LINE_STRIP);
-	glVertex3f(0, 0, 0);
-	glVertex3f(-_heading[0],_heading[1],-_heading[2]);
-	glVertex3f(0, 0, 0);
-	glVertex3f(-_up[0],_up[1],-_up[2]);
-	glEnd();*/
-	
-	/*if(_heading[2]<0)
-	{
-		//glRotatef(180+atanf(_heading[1]/_heading[2])*180/M_PI, 1, 0, 0);
-		glRotatef(180+atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
-		
-	} else
-	{
-		//glRotatef(atanf(_heading[1]/_heading[2])*180/M_PI, 1, 0, 0);
-		glRotatef(atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
-	}*/
-	
 	glLoadIdentity();
 	
 	glTranslatef(_position[0], _position[1], _position[2]);
 	
 	gluLookAt(0, 0, 0,
-			  //-_position[0], -_position[1], -_position[2],
 			  -_heading[0],-_heading[1],-_heading[2],
-			  //_position[0]+_up[0],-_position[1]+_up[1],-_position[2]+_up[2]);
-			  //-_position[0]+_heading[0], -_position[1]-_heading[1], -_position[2]-_heading[2],
-			  //0, 1, 0);
 			 -_up[0], -_up[1], -_up[2]);
 	
-	/*glColor3f(1.0, 0, 0);
-	glBegin(GL_LINE_STRIP);
-	glVertex3f(0, 0, 0);
-	glVertex3f(0, 0, -1);
-	glVertex3f(0, 0, 0);
-	glVertex3f(0, 1, 0);
-	glEnd();*/
-	
-	//drawCube(.1);
 	drawGuardian(this);
 	
 	glPopMatrix();
-	
-	/* Draw orthogonal line to the right */
-	/*glColor3f(1.0, 0, 0);
-	glBegin(GL_LINE_STRIP);
-	glVertex3f(-cos((_heading[1])*M_PI/180)*10, 0, sin((_heading[1])*M_PI/180)*10);
-	glVertex3f(0, 0, 0);
-	glEnd();
-	
-	/* Draw orthogonal line upwards
-	glColor3f(0, 0, 1.0);
-	glBegin(GL_LINE_STRIP);
-	glVertex3f(sinf(_heading[1]*M_PI/180)*cosf((_heading[0]-90)*M_PI/180)*10, sinf((_heading[0]-90)*M_PI/180)*10, cosf(_heading[1]*M_PI/180)*cosf((_heading[1]-90)*M_PI/180)*10);
-	glVertex3f(0,0,0);
-	glEnd();*/
 	
 	// Draw Heading
 	glColor3f(0, 1.0, 0);
@@ -190,9 +136,4 @@ void Guardian::turn(GLfloat x, GLfloat y)
 	// Vertical Rotation
 	rotateVectorAroundVector(_heading, _right, -x*M_PI/180);
 	rotateVectorAroundVector(_up, _right, -x*M_PI/180);
-	
-	//cout<<x<<" "<<y<<endl;
-	
-	//turnVector(_heading, x, y);
-	//turnVector(_up, x, y);
 }

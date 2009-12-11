@@ -1313,8 +1313,7 @@ glmReadOBJ(string filename)
     /* open the file */
     file = fopen(filename.c_str(), "r");
     if (!file) {
-        fprintf(stderr, "glmReadOBJ() failed: can't open data file \"%s\".\n",
-            filename);
+        fprintf(stderr, "glmReadOBJ() failed: can't open data file \"%s\".\n", filename.c_str());
         exit(1);
     }
     

@@ -110,13 +110,8 @@ void Racer::accelerate(GLfloat distance)
 
 void Racer::turn(GLfloat y)
 {
-	turnVector(_heading, 0, y);
-	//GLfloat newX = cos(y*M_PI/180)*_heading[0] - sin(y*M_PI/180)*_heading[2];
-	//GLfloat newZ = sin(y*M_PI/180)*_heading[0] + cos(y*M_PI/180)*_heading[2];
-	
-	//_heading[0] = newX;
-	//_heading[2] = newZ;
-	turnVector(_up, 0, y);
+	// Horizontal Rotation
+	rotateVectorAroundVector(_heading, _up, -y*M_PI/180);
 }
 
 void Racer::draw()
@@ -125,14 +120,6 @@ void Racer::draw()
 	
 	glPushMatrix();
 	glTranslatef(_position[0], _position[1], _position[2]);
-	
-	/*glColor3f(1.0, 0, 0);
-	glBegin(GL_LINE_STRIP);
-
-	glVertex3f(0, 0, 0);
-	glVertex3f(-_heading[0],_heading[1],-_heading[2]);
-	glEnd();
-	*/
 	
 	if(_heading[2]<0)
 		glRotatef(180+atanf(_heading[0]/_heading[2])*180/M_PI, 0, 1, 0);
@@ -143,16 +130,5 @@ void Racer::draw()
 	
 	drawRacer(this);
 	
-	//glDisable(GL_LIGHTING);
-	//glTranslatef(-_position[0], -_position[1], -_position[2]);
-	
 	glPopMatrix();
-	
-	/* Draw Perpedicular Line on x-z plane
-	 * glColor3f(1.0, 0, 0);
-	 * glBegin(GL_LINE_STRIP);
-	 * glVertex3f(_position[0]-cos((_heading)*M_PI/180)*10, _position[1], _position[2]+sin((_heading)*M_PI/180)*10);
-	 * glVertex3f(_position[0], _position[1], _position[2]);
-	 * glEnd();
-	 */
 }
