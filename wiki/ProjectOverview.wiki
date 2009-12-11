@@ -10,12 +10,3 @@ The game is being developed in C++ using openGL for the interface. GLUT is also 
 The basic architecture of the game has been developed including rudimentary physics and environment drawing. There is no gameplay at the moment but the user can drive the racer around in two dimensions and also switch to the Guardian to fly around in three dimensions. The ships are controlled by accelerating in the forward or backward direction and then friction is applied over time to slow the movement.
 ==Next==
 The next steps are to draw a race track and to implement the physics for collisions with other players and obstacles. Once that is complete other racers need to be implement with an artificial intelligence.
-
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
